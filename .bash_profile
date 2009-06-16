@@ -18,12 +18,19 @@ fi
 #############################################################################
 # general shell settings
 #############################################################################
-shopt -s histappend       # append shell history when shell exit
-xset b off                # turn bell off
-
+shopt -s checkwinsize     # check the window size after each command
 set -o noclobber          # don't overwrite existing files with >
 set -o ignoreeof          # don't terminate session on ^D input
 set -o emacs              # set shell to use emacs key bindings
+xset b off                # turn bell off
+
+
+
+#############################################################################
+# history settings
+#############################################################################
+shopt -s histappend       # append shell history when shell exit
+export HISTCONTROL=ignoredups
 
 
 #############################################################################
@@ -62,9 +69,6 @@ fi
 #############################################################################
 export EDITOR=emacs
 
-# use reverse colors for emacs
-alias emacs="emacs -r"
-
 
 #############################################################################
 # svn setup
@@ -84,5 +88,19 @@ export GIT_EDITOR=emacs
 #############################################################################
 export DROPBOX=${HOME}/Dropbox
 export DROPCONFIG=${DROPBOX}/config
+
+
+#############################################################################
+# Bash completion settings 
+#############################################################################
+export BASH_COMPLETION="${HOME}/.bash_completion"
+export BASH_COMPLETION_DIR="${HOME}/.bash_completion.d"
+
+if [ -f ${HOME}/.bash_completion ]; then
+    . ${HOME}/.bash_completion
+
+bind "set completion-ignore-case on"
+
+
 
 

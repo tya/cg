@@ -36,7 +36,6 @@ alias so=source
 # Display aliases
 #############################################################################
 alias pdis='echo DISPLAY=$DISPLAY'
-#alias sdis="export DISPLAY=`cat ${HOME}/.display`"
 
 
 #############################################################################
@@ -47,6 +46,9 @@ alias h=history
 alias l=less
 alias m=mor
 alias lns='ln -s $1'
+alias dirs='dirs -v'
+alias grep='grep --color'
+alias emacs="emacs -r"
 
 
 #############################################################################

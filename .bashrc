@@ -34,5 +34,3 @@ else
 	echo DISPLAY=$DISPLAY
     fi
 fi
-
-

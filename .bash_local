@@ -1,0 +1,7 @@
+#############################################################################
+# FILE: .bash_local
+#
+# This file loads Ty's local session settings.  This file is sourced for each
+# new session.
+#
+#############################################################################
