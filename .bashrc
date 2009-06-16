@@ -17,8 +17,8 @@ fi
 # source ~/.alias
 #############################################################################
 # source aliases
-if [ -f ${HOME}/.aliases ]; then
-    source ${HOME}/.aliases
+if [ -f ${HOME}/.bash_aliases ]; then
+    source ${HOME}/.bash_aliases
 fi
 
 #############################################################################
