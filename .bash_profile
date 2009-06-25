@@ -98,6 +98,7 @@ export BASH_COMPLETION_DIR="${HOME}/.bash_completion.d"
 
 if [ -f ${HOME}/.bash_completion ]; then
     . ${HOME}/.bash_completion
+fi
 
 bind "set completion-ignore-case on"
 
