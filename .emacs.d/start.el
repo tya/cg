@@ -25,7 +25,7 @@
 ;; ----------------------------------
 ;; load svn
 ;; ----------------------------------
-(load "/usr/share/emacs/site-lisp/psvn.el")
+(load "~/.eamcs.d/elisp/psvn.el")
 (require 'psvn)
 
 ;; ----------------------------------
