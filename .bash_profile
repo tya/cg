@@ -22,7 +22,10 @@ shopt -s checkwinsize     # check the window size after each command
 set -o noclobber          # don't overwrite existing files with >
 set -o ignoreeof          # don't terminate session on ^D input
 set -o emacs              # set shell to use emacs key bindings
-xset b off                # turn bell off
+
+if [ -f /usr/bin/xset ]; then
+    xset b off            # turn bell off
+fi
 
 
 
