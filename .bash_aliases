@@ -49,7 +49,8 @@ alias lns='ln -s $1'
 alias dirs='dirs -v'
 alias grep='grep --color'
 alias emacs="emacs -r"
-
+alias svnx="svn pe svn:externals ."
+alias svni="svn pe svn:ignore ."
 
 #############################################################################
 # Search aliases
