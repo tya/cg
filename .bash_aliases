@@ -8,10 +8,10 @@
 #############################################################################
 # Direcotry movement aliases
 #############################################################################
-alias up='cd ..; echo $cwd'
-alias up2='cd ../..; echo $cwd'
-alias up3='cd ../../..; echo $cwd'
-alias up4='cd ../../../..; echo $cwd'
+alias up='cd ..; echo $PWD'
+alias up2='cd ../..; echo $PWD'
+alias up3='cd ../../..; echo $PWD'
+alias up4='cd ../../../..; echo $PWD'
 
 
 #############################################################################
