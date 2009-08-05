@@ -26,11 +26,11 @@ fi
 #############################################################################
 if [ -f ${HOME}/.display ]; then
     export DISPLAY=`cat ${HOME}/.display`
-    echo DISPLAY=$DISPLAY
+    #echo DISPLAY=$DISPLAY
 else
     # parse the ssh client ip out of $SSH_CLIENT and assign to $DISPLAY
     if [[ $SSH_CLIENT =~ '(.*)\s.*\s.*' ]]; then
 	export DISPLAY=${BASH_REMATCH[1]}:0.0
-	echo DISPLAY=$DISPLAY
+	#echo DISPLAY=$DISPLAY
     fi
 fi
