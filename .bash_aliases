@@ -70,4 +70,4 @@ alias get=git
 #############################################################################
 # # dropconfig git repo alias
 #############################################################################
-alias config='git --git-dir=${HOME}/.config.git/ --work-tree=${HOME}'
+#alias config='git --git-dir=${HOME}/.config.git/ --work-tree=${HOME}'
