@@ -9,7 +9,7 @@
 #############################################################################
 # Store $DISPLAY in /home/${HOME}/.display 
 #############################################################################
-if [ $DISPLAY ]; then
+if [ ! -z $DISPLAY ]; then
     if [ -f /home/${HOME}/.display ]; then
 	rm -f /home/${HOME}/.display
     fi

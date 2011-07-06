@@ -28,83 +28,59 @@ if [ -f /usr/bin/xset ]; then
 fi
 
 
-
 #############################################################################
 # history settings
 #############################################################################
 shopt -s histappend       # append shell history when shell exit
-export HISTCONTROL=ignoredups
-
-
-#############################################################################
-# local path settings
-#############################################################################
-if [ -f ${HOME}/bin ]; then
-	export PATH=${PATH}:${HOME}/bin
-fi
-
-if [ -f ${HOME}/.local/bin ]; then
-	export PATH=${PATH}:${HOME}/.local/bin
-fi
-
-
-#############################################################################
-# sbin path settings
-#############################################################################
-# sbin
-if [ -f /sbin ]; then
-    export PATH=PATH=${PATH}:/sbin
-fi
-
-# /usr/sbin
-if [ -f /usr/sbin ]; then
-    export PATH=PATH=${PATH}:/usr/sbin
-fi
-
-# /usr/local/sbin
-if [ -f /usr/local/sbin ]; then
-    export PATH=PATH=${PATH}:/usr/local/sbin
-fi
-
-
-#############################################################################
-# editor setup
-#############################################################################
-export EDITOR=emacs
-
-
-#############################################################################
-# svn setup
-#############################################################################
-export SVN_EDITOR=emacs
-export SVN_REPO='https://svn.beatportcorp.net/svn/'
-
-
-#############################################################################
-# git setup
-#############################################################################
-export GIT_EDITOR=emacs
-
-
-#############################################################################
-# dropbox/config-repo settings
-#############################################################################
-export DROPBOX=${HOME}/Dropbox
-export DROPCONFIG=${DROPBOX}/config
 
 
 #############################################################################
 # Bash completion settings 
 #############################################################################
-export BASH_COMPLETION="${HOME}/.bash_completion"
-export BASH_COMPLETION_DIR="${HOME}/.bash_completion.d"
+bind "set completion-ignore-case on"
 
 if [ -f ${HOME}/.bash_completion ]; then
     . ${HOME}/.bash_completion
 fi
 
-bind "set completion-ignore-case on"
 
+#############################################################################
+# path settings
+#############################################################################
+# ~/bin
+if [ -d ${HOME}/bin ]; then
+	export PATH=${PATH}:${HOME}/bin
+fi
 
+# ~/.local/bin
+if [ -d ${HOME}/.local/bin ]; then
+	export PATH=${PATH}:${HOME}/.local/bin
+fi
 
+# /opt/local/bin (macports)
+if [ -d /opt/local/bin ]; then
+	export PATH=${PATH}:/opt/local/bin
+fi
+
+# /opt/local/sbin (macports)
+if [ -d /opt/local/bin ]; then
+	export PATH=${PATH}:/opt/local/sbin
+fi
+
+# sbin
+if [ -d /sbin ]; then
+        export PATH=${PATH}:/sbin
+fi
+
+# /usr/sbin
+if [ -d /usr/sbin ]; then
+        export PATH=${PATH}:/usr/sbin
+fi
+
+# /usr/local/sbin
+if [ -d /usr/local/sbin ]; then
+        export PATH=${PATH}:/usr/local/sbin
+fi
+
+cleanpath
 
