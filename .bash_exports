@@ -36,7 +36,7 @@ export BASH_COMPLETION_DIR="${HOME}/.bash_completion.d"
 # svn setup
 #############################################################################
 export SVN_EDITOR=emacs
-export SVN_SANDBOX=${HOME}/svn_sandbox
+export SVN_SANDBOX=${HOME}/svn-sandbox
 export SVN_REPO='https://subversion.corp.localmatters.com/subversion'
 
 
@@ -44,7 +44,7 @@ export SVN_REPO='https://subversion.corp.localmatters.com/subversion'
 # git setup
 #############################################################################
 export GIT_EDITOR=emacs
-export GIT_SANDBOX=${HOME}/git_sandbox
+export GIT_SANDBOX=${HOME}/git-sandbox
 export GIT_REPO='https://git.corp.localmatters.com'
 
 
@@ -52,7 +52,7 @@ export GIT_REPO='https://git.corp.localmatters.com'
 # git setup
 #############################################################################
 export HG_EDITOR=emacs
-export HG_SANDBOX=${HOME}/hg_sandbox
+export HG_SANDBOX=${HOME}/hg-sandbox
 export HG_REPO='https://hg.corp.localmatters.com'
 
 
