@@ -1,0 +1,25 @@
+[user]
+  email = ty.alexander@beatport.com
+  name = Ty Alexander
+  editor = vim
+[core]
+  whitespace = trailing-space,space-before-tab,indent-with-non-tab,cr-at-eol
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+[alias]
+  ci = commit -a
+  co = checkout
+  st = status
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+  lp = log -p
+[diff]
+  tool = diffmerge
+[difftool "diffmerge"]
+  cmd = diffmerge $LOCAL $REMOTE
+[merge]
+  tool = diffmerge
+[mergetool "diffmerge"]
+  cmd = diffmerge --merge --result=$MERGED $LOCAL $BASE $REMOTE
+  trustExitCode = true

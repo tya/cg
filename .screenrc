@@ -1,23 +1,69 @@
-backtick 1 60 60 awk '{if ($1=="MemTotal:") mt = $2; if ($1=="MemFree:") mm = $2; if ($1=="Buffers:") mb = $2; if ($1=="Cached:") mc = $2} END {printf ("%2.1f"), ((mt-(mm+mb+mc)) * 100 / mt);print "%M"}' /proc/meminfo
-backtick 2 60 50 awk '{if ($1=="SwapFree:") fs = $2; if ($1=="SwapTotal:") ts = $2} END {printf ("%2.1f"),((ts-fs) * 100 / ts );print "%S"}' /proc/meminfo
-defscrollback 30000
-hardstatus always lastline
-hardstatus string '%{= kG}%{g}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][ %{B}%m/%d %{W}%c %{g}][ %{R}%l %{g}][ %{G}%1` %2` %{g}]'
-#escape ^Bb # Instead of Control-a, make the escape/command character be Control-b
-autodetach on # Autodetach session on hangup instead of terminating screen completely
-startup_message off # Turn off the splash screen
-defscrollback 30000 # Use a 30000-line scrollback buffer
-termcapinfo xterm ti@:te@
+############################################################################
+## General Options
+############################################################################
+# Set caption (bottom line in terminal)
+# %{= kw}        --> set print attributes (black bg, white fg)
+# %{G}[          --> print a bright green '['
+# %=             --> print padding
+# %{w}%?%-w      --> print in white any windows up to current one
+# %{R}(          --> print in bright red print '('
+# %{R}%n         --> print in bright red print the current window number and name
+# %{R}%t         --> print in bright red print the current window name
+# %{R})          --> print in bright red print ')'
+# %{w}%?%+w      --> print in white any windows after current one
+# %=             --> pad the string to the display's width
+# %{G}]          --> print a bright green ']'
+#hardstatus always lastline "%{= kg}[%=%{= kw}%?%-w%{R}(%n*%t)%?%+w%{= kg}%=]"
+#caption always "%{= kg}[%=%{= kw}%?%-w%{R}(%n*%t)%?%+w%{= kg}%=]"
+caption always "%{= kw} %{G}[%=%{y}%?%-w%{R}(%{R}%n %{R}%t%{R})%{y}%?%+w%=%{G}] "
+
+# Mininal hardstatus line (print in xterm header w/o color)
+#hardstatus always lastline
+#hardstatus string "[%=%?%-w(%n %t)%?%+w%=]"
+
+# Turn off the splash screen
+startup_message off
+
+# Autodetach session on hangup instead of terminating screen completely
+autodetach on
+
+# Use a 30000-line scrollback buffer 
+defscrollback 30000 
+
+# Turn on visual bell
+vbell on
+
 # From http://www4.informatik.uni-erlangen.de/~jnweiger/screen-faq.html
 # Q: My xterm scrollbar does not work with screen.
-# A: The problem is that xterm will not allow scrolling if the alternate text buffer is selected. The standard definitions of the termcap initialize capabilities ti and te switch to and from the alternate text buffer. (The scrollbar also does not work when you start e.g. ‘vi’). You can tell screen not to use these initialisations by adding the line “termcapinfo xterm ti@:te@” to your ~/.screenrc file. 
+# A: The problem is that xterm will not allow scrolling if the alternate text
+#     buffer is selected. The standard definitions of the termcap initialize
+#     capabilities ti and te switch to and from the alternate text buffer.
+#     (The scrollbar also does not work when you start e.g. ‘vi’).
+#     You can tell screen not to use these initialisations by adding the line
+#     “termcapinfo xterm ti@:te@” to your ~/.screenrc file. 
+# Enable xterm mouse scrolling
+termcapinfo xterm ti@:te@
+termcapinfo screen* ti@:te@
 
+
+############################################################################
+## Key Bindings
+############################################################################
+# bind ctl-a <space bar> to show window list
+bind ' ' windowlist -b
+
+
+############################################################################
+## Screens
+############################################################################
+screen -t rpms          2
+screen -t puppet        1
+screen -t default       0
+
+
+############################################################################
+## Disabled Options
+############################################################################
+#escape ^Bb # Instead of Control-a, make the escape/command character be Control-b
 #termcap  xterm 'AF=\E[3%dm:AB=\E[4%dm'
 #terminfo xterm 'AF=\E[3%p1%dm:AB=\E[4%p1%dm'
-
-screen -t content-delivery      4
-screen -t beatport              3
-screen -t baseware              2
-screen -t admintools            1
-screen -t default               0
-
