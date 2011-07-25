@@ -1,7 +1,7 @@
 [ui]
 name = Ty Alexander
 username = talexander
-email = ty.alexander@beatport.com
+email = ty.alexander@localmatters.com
 merge = diffmerge
 
 [extensions] 
@@ -10,11 +10,11 @@ color=
 pager= 
 fetch=
 rebase=
-kerberos=
+#kerberos=
 graphlog=
 hgext.rebase=
 extdiff=
-reviewboard=~/sandbox/mercurial-reviewboard
+#reviewboard=~/sandbox/mercurial-reviewboard
 #bphg.ext=
 mq=
 

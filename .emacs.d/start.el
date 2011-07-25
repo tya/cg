@@ -19,8 +19,8 @@
 ;; auto install
 ;; ----------------------------------
 ;; load auto install file
-(load "~/.emacs.d/auto-install/auto-install.el")
-(require 'auto-install)
+;;(load "~/.emacs.d/auto-install/auto-install.el")
+;;(require 'auto-install)
 
 ;; ----------------------------------
 ;; load svn
@@ -29,11 +29,19 @@
 (require 'psvn)
 
 ;; ----------------------------------
+;; load vcl
+;; ----------------------------------
+(load "~/.emacs.d/elisp/vcl-mode.el")
+;;(require 'vcl)
+
+;; ----------------------------------
 ;; scrolling
 ;; ----------------------------------
 ;; load scrolling
-(load "~/.emacs.d/elisp/smooth-scrolling.el")
-(require 'smooth-scrolling)
+;;(load "~/.emacs.d/elisp/smooth-scrolling.el")
+;;(require 'smooth-scrolling)
+(setq mouse-wheel-scroll-amount '(1))
+(setq mouse-wheel-progressive-speed nil)
 
 ;; ----------------------------------
 ;; load python
@@ -69,8 +77,8 @@
 ;; ----------------------------------
 ;; load auto-complete
 ;; ----------------------------------
-(load "~/.emacs.d/auto-install/auto-complete.el")
-(require 'auto-complete)
+;;(load "~/.emacs.d/auto-install/auto-complete.el")
+;;(require 'auto-complete)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -87,7 +95,7 @@
 (setq require-final-newline t)
 
 ;; allow you to type just "y" instead of "yes" when you exit.
-;;(fset 'yes-or-no-p 'y-or-n-p)
+(fset 'yes-or-no-p 'y-or-n-p)
 
 
 ;; ----------------------------------
@@ -100,7 +108,7 @@
 (ispell-change-dictionary "american")
 
 ;; create spaces not tabs
-;;(setq-default indent-tabs-mode nil)
+(setq-default indent-tabs-mode nil)
 
 ;; Set case-sensitive search off
 (setq-default case-fold-search t)
@@ -112,10 +120,7 @@
 (setq completion-ignored-extensions '(".o" ".obj" ".exe" ".bmp" ".res" ".class" ".doc"))
 
 ;; change the default compile command
-(setq compile-command "ant -e -Denv=stage -Dprofile=releasedeployer ")
-
-;; get intermittent messages to stop typing
-(type-break-mode)
+;;(setq compile-command "ant -e -Denv=stage -Dprofile=releasedeployer ")
 
 ;; Doing c/c++editing
 ;;(require 'cc-mode)
@@ -143,20 +148,15 @@
 ;; appearance
 ;; -----------------------------------
 ;; If GNU emacs, set background and foreground
-(cond
- ((string-match "GNU" (emacs-version))
-  (set-background-color "Black")
-  (set-foreground-color "green"))
- )
 
 ;; Disable beeping and instead make the bell visual
 (setq visible-bell t)
 
 ;; turn off menu bar
-(menu-bar-mode 0)
+;;(menu-bar-mode 0)
 
 ;; turn off tool bar
-(tool-bar-mode 0)
+;;(tool-bar-mode 0)
 
 ;; make the display of date and time persistent.
 (setq display-time-day-and-date t)
@@ -383,13 +383,13 @@
 ;; auto install
 ;; ----------------------------------
 ;; have auto install use this dir
-(setq auto-install-directory "~/.emacs.d/vendor/auto-install/")
+;;(setq auto-install-directory "~/.emacs.d/vendor/auto-install/")
 
 ;; update the list of package names for auto install on startup
-(auto-install-update-emacswiki-package-name t)
+;;(auto-install-update-emacswiki-package-name t)
 
 ;; auto confirm auto installs
-(setq auto-install-save-confirm nil)
+;;(setq auto-install-save-confirm nil)
 
 ;; This command `defalias'es `install-elisp',
 ;;     `install-elisp-from-emacswiki' and `install-elisp-from-gist' to
@@ -400,16 +400,16 @@
 ;; ----------------------------------
 ;; auto-complete stuff
 ;; ----------------------------------
-(autoload 'python-mode "python-mode" "Python Mode." t)
-(add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
-(add-to-list 'interpreter-mode-alist '("python" . python-mode))
+;;(autoload 'python-mode "python-mode" "Python Mode." t)
+;;(add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
+;;(add-to-list 'interpreter-mode-alist '("python" . python-mode))
  
 ;; Initialize Pymacs                                                                                           
-(autoload 'pymacs-apply "pymacs")
-(autoload 'pymacs-call "pymacs")
-(autoload 'pymacs-eval "pymacs" nil t)
-(autoload 'pymacs-exec "pymacs" nil t)
-(autoload 'pymacs-load "pymacs" nil t)
+;;(autoload 'pymacs-apply "pymacs")
+;;(autoload 'pymacs-call "pymacs")
+;;(autoload 'pymacs-eval "pymacs" nil t)
+;;(autoload 'pymacs-exec "pymacs" nil t)
+;;(autoload 'pymacs-load "pymacs" nil t)
 
 ;; ;; Initialize Rope                                                                                             
 ;; (pymacs-load "ropemacs" "rope-")

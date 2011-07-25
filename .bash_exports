@@ -28,8 +28,8 @@ export DROPCONFIG=${DROPBOX}/config
 #############################################################################
 # bash completion
 #############################################################################
-export BASH_COMPLETION="${HOME}/.bash_completion"
-export BASH_COMPLETION_DIR="${HOME}/.bash_completion.d"
+[ -n "$BASH_COMPLETION" ] || export BASH_COMPLETION="${HOME}/.bash_completion"
+[ -n "$BASH_COMPLETION_DIR" ] || export BASH_COMPLETION_DIR="${HOME}/.bash_completion.d"
 
 
 #############################################################################
@@ -66,3 +66,10 @@ export SANDBOX=${HOME}/sandbox
 # setup python path
 #############################################################################
 #export PYTHONPATH=/Users/ty/sandbox/python-beatport:/Users/ty/sandbox/python-bphg
+
+
+#############################################################################
+# setup python path
+#############################################################################
+export GREP_OPTIONS="--exclude=\*/.svn/\*"
+

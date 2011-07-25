@@ -11,7 +11,7 @@
 #############################################################################
 # get the aliases and functions
 if [ -f ~/.bashrc ]; then
-	. ~/.bashrc
+    . ~/.bashrc
 fi
 
 
@@ -49,37 +49,47 @@ fi
 #############################################################################
 # ~/bin
 if [ -d ${HOME}/bin ]; then
-	export PATH=${PATH}:${HOME}/bin
+    export PATH=${PATH}:${HOME}/bin
 fi
 
 # ~/.local/bin
 if [ -d ${HOME}/.local/bin ]; then
-	export PATH=${PATH}:${HOME}/.local/bin
+    export PATH=${PATH}:${HOME}/.local/bin
+fi
+
+# ~/scripts
+if [ -d ${HOME}/scripts ]; then
+    export PATH=${PATH}:${HOME}/scripts
+fi
+
+# /usr/local/mysql/bin (mysql)
+if [ -d /usr/local/mysql/bin ]; then
+    export PATH=${PATH}:/usr/local/mysql/bin
 fi
 
 # /opt/local/bin (macports)
 if [ -d /opt/local/bin ]; then
-	export PATH=${PATH}:/opt/local/bin
+    export PATH=/opt/local/bin:${PATH}
 fi
 
 # /opt/local/sbin (macports)
 if [ -d /opt/local/bin ]; then
-	export PATH=${PATH}:/opt/local/sbin
+    export PATH=/opt/local/sbin:${PATH}
 fi
 
 # sbin
 if [ -d /sbin ]; then
-        export PATH=${PATH}:/sbin
+    export PATH=${PATH}:/sbin
 fi
 
 # /usr/sbin
 if [ -d /usr/sbin ]; then
-        export PATH=${PATH}:/usr/sbin
+    export PATH=${PATH}:/usr/sbin
 fi
 
 # /usr/local/sbin
 if [ -d /usr/local/sbin ]; then
-        export PATH=${PATH}:/usr/local/sbin
+    export PATH=${PATH}:/usr/local/sbin
 fi
 
 cleanpath
