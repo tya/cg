@@ -61,9 +61,24 @@ function gitcloner {
     fi
 }
 
+#############################################################################
+# function: svndiff
+# usage svndiff <path>
+#############################################################################
+function svndiff {
+    svn diff "${@}" | colordiff
+}
 
 #############################################################################
-# function cleanpath
+# function: itab  (name an iterm tab)
+# usage itab <name>
+#############################################################################
+function itab {
+    echo -ne "\033]0;"$@"\007"
+}
+
+#############################################################################
+# Function cleanpath
 # remove duplicates in PATH, but keep the order
 # usage:  cleanpath
 # 

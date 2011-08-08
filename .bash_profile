@@ -43,6 +43,10 @@ if [ -f ${HOME}/.bash_completion ]; then
     . ${HOME}/.bash_completion
 fi
 
+if [ -f /opt/local/etc/bash_completion ]; then
+    . /opt/local/etc/bash_completion
+fi
+
 
 #############################################################################
 # path settings
