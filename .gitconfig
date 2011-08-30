@@ -1,9 +1,10 @@
 [user]
-  email = ty.alexander@beatport.com
+  email = talexander@localmatterscom
   name = Ty Alexander
   editor = vim
 [core]
   whitespace = trailing-space,space-before-tab,indent-with-non-tab,cr-at-eol
+  autocrlf = input
 [color]
   diff = auto
   status = auto
@@ -23,3 +24,5 @@
 [mergetool "diffmerge"]
   cmd = diffmerge --merge --result=$MERGED $LOCAL $BASE $REMOTE
   trustExitCode = true
+[http]
+  sslVerify = false

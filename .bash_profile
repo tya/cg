@@ -31,7 +31,11 @@ fi
 #############################################################################
 # history settings
 #############################################################################
-shopt -s histappend       # append shell history when shell exit
+# append shell history when shell exit
+shopt -s histappend
+
+# whenever displaying the prompt, write the previous line to disk:
+PROMPT_COMMAND='history -a'
 
 
 #############################################################################

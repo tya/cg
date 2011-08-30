@@ -86,3 +86,8 @@ alias svni="svn pe svn:ignore ."
 #############################################################################
 alias emacs='open -a Emacs'
 
+#############################################################################
+# lmi aliases
+#############################################################################
+alias mvnpre='mvn release:prepare'
+alias mvnperf='mvn -Darguments="-DcukeTags=@none" release:perform'

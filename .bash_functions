@@ -69,6 +69,14 @@ function svndiff {
     svn diff "${@}" | colordiff
 }
 
+function svnpatch {
+    # 1. cd /wcroot/of/svn/repo
+    # 2. svn diff > ~/fix_ugly_bug.diff
+    # 3. svn sw https://svn.repo/new/svn/location
+    # 4. svnpatch ~/fix_ugly_bug.diff
+    patch -p0 -i "${@}"
+}
+
 #############################################################################
 # function: itab  (name an iterm tab)
 # usage itab <name>
