@@ -62,19 +62,32 @@ function gitcloner {
 }
 
 #############################################################################
-# function: svndiff
+# function: svndiff (must be in root of svn checkout)
 # usage svndiff <path>
 #############################################################################
 function svndiff {
     svn diff "${@}" | colordiff
 }
 
+#############################################################################
+# function: svnpatch (must be in root of svn checkout)
+# usage svnpatch <patch_file>
+#############################################################################
 function svnpatch {
     # 1. cd /wcroot/of/svn/repo
     # 2. svn diff > ~/fix_ugly_bug.diff
     # 3. svn sw https://svn.repo/new/svn/location
     # 4. svnpatch ~/fix_ugly_bug.diff
     patch -p0 -i "${@}"
+}
+
+#############################################################################
+# function: svnfind (path arg is optional)
+# usage svnfind [path]
+#############################################################################
+function svnfind() {
+   if [ -e $1 ]; then DIR=$1; shift; else DIR="."; fi
+   find "$DIR" -name .svn -prune -o "$@" -print
 }
 
 #############################################################################
