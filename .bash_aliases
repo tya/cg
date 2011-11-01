@@ -57,7 +57,7 @@ alias fgrep='fgrep --color'
 #############################################################################
 # Search aliases
 #############################################################################
-alias fndenv='export  | grep -i $1'
+alias fndenv='env | grep -i $1'
 alias fndcmd='history | grep -i $1'
 
 
