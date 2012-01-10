@@ -44,4 +44,6 @@ fi
 # color command terminal
 # see https://wiki.archlinux.org/index.php/Color_Bash_Prompt
 #############################################################################
-PS1='\[\e[0;31m\]\u\[\e[m\] \[\e[1;34m\]\w\[\e[m\] \[\e[0;31m\]\$ \[\e[m\]\[\e[0;32m\]'
+
+#                [                    username              @                    hostname               pwd                     $            ]                 rest
+PS1='\[\e[0;32m\][\[\e[m\]\[\e[1;34m\]\u\[\e[m\]\[\e[0;36m\]@\[\e[m\]\[\e[0;31m\]\h\[\e[m\] \[\e[1;34m\]\w\[\e[m\] \[\e[0;31m\]\$\[\e[0;32m\]]\[\e[m\] \[\e[m\]\[\e[0;32m\]'
