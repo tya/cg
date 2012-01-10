@@ -56,9 +56,9 @@ bind ' ' windowlist -b
 # see http://snarfed.org/emacs_keybindings_in_gnu_screens_copy-scrollback_mode
 #escape ^x^x
 bind o focus
-bind 0 remove
-bind 1 only
-bind 2 split
+#bind 0 remove
+#bind 1 only
+#bind 2 split
 bind = resize =
 bind ^b windowlist -m
 

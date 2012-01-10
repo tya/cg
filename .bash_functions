@@ -109,3 +109,22 @@ function cleanpath {
     PATH="${PATH%:}"  # remove trailing colon
     export PATH
 }
+
+#############################################################################
+# Function setjava5
+# usage: setjava5
+#############################################################################
+function setjava5 {
+    [ -d $JAVA_HOME_5 ] && export JAVA_HOME=$JAVA_HOME_5
+    echo JAVA_HOME=$JAVA_HOME
+}
+
+#############################################################################
+# Function setjava6
+# usage: setjava6
+#############################################################################
+function setjava6 {
+    [ -d $JAVA_HOME_6 ] && export JAVA_HOME=$JAVA_HOME_6 
+    echo JAVA_HOME=$JAVA_HOME
+}
+

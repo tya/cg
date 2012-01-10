@@ -97,3 +97,8 @@ export GREP_OPTIONS="--exclude=\*/.svn/\*"
 #############################################################################
 export MAVEN_OPTS="-Xmx768m -Djava.awt.headless=true"
 
+#############################################################################
+# java setup
+#############################################################################
+export JAVA_HOME_5=/System/Library/Frameworks/JavaVM.framework/Versions/1.5/Home
+export JAVA_HOME_6=/System/Library/Frameworks/JavaVM.framework/Versions/1.6/Home
