@@ -100,5 +100,15 @@ if [ -d /usr/local/sbin ]; then
     export PATH=${PATH}:/usr/local/sbin
 fi
 
+#############################################################################
+# LMI path settings
+#############################################################################
+opcos="dgs dtg foc lok med pkt"
+for opco in $opcos; do
+    if [ -d ${HOME}/svn-sandbox/edsa-setup/${opco}/bin/ ]; then
+        export PATH=${PATH}:${HOME}/svn-sandbox/edsa-setup/${opco}/bin
+    fi
+done;
+
 cleanpath
 

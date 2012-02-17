@@ -15,12 +15,13 @@ function svncloner {
 	echo "Failed to clone, \$SVN_REPO is not set"
 	return
     fi
+    dest=${2:-$1}
     if [[ -z ${SVN_SANDBOX} ]]; then
 	pushd ${SVN_SANDBOX} >> /dev/null
-	svn clone ${SVN_REPO}/${1}
+	svn clone ${SVN_REPO}/${1} ${dest}
 	popd >> /dev/null
     else
-	svn co ${SVN_REPO}/${1} ${2}
+	svn co ${SVN_REPO}/${1} ${dest}
     fi
 }
 
@@ -33,12 +34,13 @@ function hgcloner {
 	echo "Failed to clone, \$HG_REPO is not set"
 	return
     fi
+    dest=${2:-$1}
     if [[ -z ${HG_SANDBOX} ]]; then
 	pushd ${HG_SANDBOX} >> /dev/null
-	hg clone ${HG_REPO}/${1}
+	hg clone ${HG_REPO}/${1} ${dest}
 	popd >> /dev/null
     else
-	hg clone ${HG_REPO}/${1} ${2}
+	hg clone ${HG_REPO}/${1} ${dest}
     fi
 }
 
@@ -52,12 +54,14 @@ function gitcloner {
 	echo "Failed to clone, \$GIT_REPO is not set"
 	return
     fi
+
+    dest=${2:-$1}
     if [[ -z ${GIT_SANDBOX} ]]; then
 	pushd ${GIT_SANDBOX} >> /dev/null
-	git clone ${GIT_REPO}/${1}
+	git clone ${GIT_REPO}/${1} ${dest}
 	popd >> /dev/null
     else
-	git clone ${GIT_REPO}/${1} ${2}
+        git clone ${GIT_REPO}/${1} ${dest}
     fi
 }
 
