@@ -1,16 +1,17 @@
 [user]
-  email = talexander@localmatterscom
+  email = ta@wayin.com
   name = Ty Alexander
   editor = vim
 [core]
   whitespace = trailing-space,space-before-tab,indent-with-non-tab,cr-at-eol
   autocrlf = input
+  excludesfile = /Users/ta/.gitignore_global
 [color]
   diff = auto
   status = auto
   branch = auto
 [alias]
-  ci = commit -a
+  ci = commit
   co = checkout
   st = status
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
@@ -24,5 +25,3 @@
 [mergetool "diffmerge"]
   cmd = diffmerge --merge --result=$MERGED $LOCAL $BASE $REMOTE
   trustExitCode = true
-[http]
-  sslVerify = false

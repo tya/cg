@@ -101,14 +101,12 @@ if [ -d /usr/local/sbin ]; then
 fi
 
 #############################################################################
-# LMI path settings
+# fink setup
 #############################################################################
-opcos="dgs dtg foc lok med pkt"
-for opco in $opcos; do
-    if [ -d ${HOME}/svn-sandbox/edsa-setup/${opco}/bin/ ]; then
-        export PATH=${PATH}:${HOME}/svn-sandbox/edsa-setup/${opco}/bin
-    fi
-done;
+# /usr/local/sbin
+if [ -f /sw/bin/init.sh ]; then
+    . /sw/bin/init.sh
+fi
 
 cleanpath
 
