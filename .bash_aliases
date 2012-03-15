@@ -71,7 +71,7 @@ alias suod=sudo
 #############################################################################
 # scm aliases
 #############################################################################
-alias rmorig='find . -type f -name "*.orig" -exec rm {} \; -print'
+alias rmorig='find . -type f -name "*.orig" -delete'
 alias svnx="svn pe svn:externals ."
 alias svni="svn pe svn:ignore ."
 

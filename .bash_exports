@@ -97,7 +97,7 @@ export GREP_OPTIONS="--exclude=\*/.svn/\*"
 #############################################################################
 # node.js setup
 #############################################################################
-export NODE_PATH="/usr/local/lib/node"
+export NODE_PATH="/usr/local/lib/node:/usr/local/lib/node_modules"
 
 #############################################################################
 # maven setup

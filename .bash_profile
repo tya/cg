@@ -100,13 +100,5 @@ if [ -d /usr/local/sbin ]; then
     export PATH=${PATH}:/usr/local/sbin
 fi
 
-#############################################################################
-# fink setup
-#############################################################################
-# /usr/local/sbin
-if [ -f /sw/bin/init.sh ]; then
-    . /sw/bin/init.sh
-fi
-
 cleanpath
 
