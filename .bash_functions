@@ -132,3 +132,19 @@ function setjava6 {
     echo JAVA_HOME=$JAVA_HOME
 }
 
+
+#############################################################################
+# Function setdebug
+# usage: setdebug
+#############################################################################
+function setdebug {
+    export MAVEN_OPTS="-Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,address=8000,server=y,suspend=y"
+}
+
+#############################################################################
+# Function nodebug
+# usage: nodebug
+#############################################################################
+function nodebug {
+    export MAVEN_OPTS="-Xmx768m -Djava.awt.headless=true"
+}
