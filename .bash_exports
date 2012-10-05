@@ -1,4 +1,4 @@
-#############################################################################
+ #############################################################################
 # FILE: .bash_profile
 #
 # This file loads Ty's bash exports.  This file is sourced for eacn new
@@ -98,12 +98,6 @@ export GREP_OPTIONS="--exclude=\*/.svn/\*"
 # node.js setup
 #############################################################################
 export NODE_PATH="/usr/local/lib/node:/usr/local/lib/node_modules"
-
-#############################################################################
-# maven setup
-#############################################################################
-#export MAVEN_OPTS="-Xmx768m -Djava.awt.headless=true"
-export MAVEN_OPTS="-Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,address=8000,server=y,suspend=y"
 
 #############################################################################
 # osx setup

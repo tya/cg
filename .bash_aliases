@@ -59,6 +59,8 @@ alias fgrep='fgrep --color'
 #############################################################################
 alias fndenv='env | grep -i $1'
 alias fndcmd='history | grep -i $1'
+alias fenv='env | grep -i $1'
+alias fcmd='history | grep -i $1'
 
 
 #############################################################################
@@ -74,6 +76,17 @@ alias suod=sudo
 alias rmorig='find . -type f -name "*.orig" -delete'
 alias svnx="svn pe svn:externals ."
 alias svni="svn pe svn:ignore ."
+
+#############################################################################
+# git scm aliases
+#############################################################################
+alias gf="git fetch"
+alias gs="git st"
+alias gl="git log -n 5"
+
+alias gitf="git flow"
+alias gff="git flow feature"
+alias gitff="git flow feature"
 
 #############################################################################
 # dropconfig git repo alias

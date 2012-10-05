@@ -10,7 +10,7 @@
 # source /etc/bashrc
 #############################################################################
 if [ -f /etc/bashrc ]; then
-	. /etc/bashrc
+    . /etc/bashrc
 fi
 
 
@@ -44,6 +44,18 @@ fi
 # color command terminal
 # see https://wiki.archlinux.org/index.php/Color_Bash_Prompt
 #############################################################################
+#export PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
+export GIT_PS1_SHOWDIRTYSTATE=1
+export GIT_PS1_SHOWSTASHSTATE=1
+export GIT_PS1_SHOWUNTRACKEDFILES=1
+export GIT_PS1_SHOWUPSTREAM="verbose"
 
-#                [                    username              @                    hostname               pwd                     $            ]                 rest
-PS1='\[\e[0;32m\][\[\e[m\]\[\e[1;34m\]\u\[\e[m\]\[\e[0;36m\]@\[\e[m\]\[\e[0;31m\]\h\[\e[m\] \[\e[1;34m\]\w\[\e[m\] \[\e[0;31m\]\$\[\e[0;32m\]]\[\e[m\] \[\e[m\]\[\e[0;32m\]'
+#                [                    username              @                    hostname               pwd                     git-status                rest
+export PS1='\[\e[0;32m\][\[\e[m\]\[\e[1;34m\]\u\[\e[m\]\[\e[0;36m\]@\[\e[m\]\[\e[0;31m\]\h\[\e[m\] \[\e[1;34m\]\w\[\e[m\] $(__git_ps1 " (%s)")\[\e[m\]\[\e[0;32m\] \[\e[0;31m\]\$\[\e[0;32m\]] '
+
+#############################################################################
+# call personal functions
+#############################################################################
+setjava6
+nodebug
+cleanpath

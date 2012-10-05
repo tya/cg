@@ -47,8 +47,12 @@ if [ -f ${HOME}/.bash_completion ]; then
     . ${HOME}/.bash_completion
 fi
 
-if [ -f /opt/local/etc/bash_completion ]; then
-    . /opt/local/etc/bash_completion
+if [ -f `brew --prefix`/etc/bash_completion ]; then
+    . `brew --prefix`/etc/bash_completion
+fi
+
+if [ -f `brew --prefix git`/etc/bash_completion.d/git-completion.bash ]; then
+    . `brew --prefix git`/etc/bash_completion.d/git-completion.bash
 fi
 
 
