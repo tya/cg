@@ -69,6 +69,10 @@ alias fcmd='history | grep -i $1'
 alias chomd=chmod
 alias suod=sudo
 
+alias sudo='sudo '
+#(recognize the space!) 
+# see http://serverfault.com/questions/61321/how-to-pass-alias-through-sudo
+
 
 #############################################################################
 # scm aliases
@@ -76,6 +80,7 @@ alias suod=sudo
 alias rmorig='find . -type f -name "*.orig" -delete'
 alias svnx="svn pe svn:externals ."
 alias svni="svn pe svn:ignore ."
+
 
 #############################################################################
 # git scm aliases
@@ -88,6 +93,7 @@ alias gitf="git flow"
 alias gff="git flow feature"
 alias gitff="git flow feature"
 
+
 #############################################################################
 # dropconfig git repo alias
 #############################################################################
@@ -99,8 +105,17 @@ alias gitff="git flow feature"
 #############################################################################
 alias emacs='open -a Emacs'
 
+
 #############################################################################
 # lmi aliases
 #############################################################################
 alias mvnpre='mvn release:prepare'
 alias mvnperf='mvn -Darguments="-DcukeTags=@none" release:perform'
+
+
+#############################################################################
+# lmi aliases
+#############################################################################
+alias slapstop='kill -INT `cat /usr/local/Cellar/openldap/2.4.24/var/run/slapd.pid`'
+alias slapstart='/usr/libexec/slapd -f /usr/local/etc/openldap/slapd.conf'
+alias slapis='ps aux | grep -i slapd'
