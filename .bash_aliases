@@ -72,6 +72,8 @@ alias suod=sudo
 alias sudo='sudo '
 #(recognize the space!) 
 # see http://serverfault.com/questions/61321/how-to-pass-alias-through-sudo
+# manpage: A trailing space in value causes the next word to be checked for
+#          alias substitution when the alias is expanded
 
 
 #############################################################################
