@@ -1,0 +1,94 @@
+<project name="config" default="install">
+
+  <macrodef name="symlinkDotFileset"> 
+    <attribute name="fsRefid"/> 
+    <attribute name="destDir"/> 
+    <sequential> 
+      <apply executable="ln" dest="@{destdir}"  dir="@{destdir}" verbose="false"> 
+        <arg value="-s"/> 
+        <arg value="-f"/> 
+	<srcfile/>
+	<targetfile />
+	<chainedmapper>
+	  <flattenmapper/>
+	  <regexpmapper from="^(.*)$$" to=".\0"/>
+	</chainedmapper>
+        <fileset refid="@{fsRefid}"/> 
+      </apply> 
+    </sequential> 
+  </macrodef> 
+
+  <macrodef name="symlinkDotDirset"> 
+    <attribute name="fsRefid"/> 
+    <attribute name="destDir"/> 
+    <sequential> 
+      <apply executable="ln" dest="@{destdir}"  dir="@{destdir}" verbose="false"> 
+        <arg value="-s"/> 
+        <arg value="-f"/> 
+	<srcfile/>
+	<targetfile />
+	<chainedmapper>
+	  <flattenmapper/>
+	  <regexpmapper from="^(.*)$$" to=".\0"/>
+	</chainedmapper>
+        <dirset refid="@{fsRefid}"/> 
+      </apply> 
+    </sequential> 
+  </macrodef> 
+
+  <macrodef name="symlinkFileset"> 
+    <attribute name="fsRefid"/> 
+    <attribute name="destDir"/> 
+    <sequential> 
+      <apply executable="ln" dest="@{destdir}"  dir="@{destdir}" verbose="false"> 
+        <arg value="-s"/> 
+        <arg value="-f"/> 
+	<srcfile/>
+	<targetfile />
+	<flattenmapper/>
+        <fileset refid="@{fsRefid}"/> 
+      </apply> 
+    </sequential> 
+  </macrodef> 
+
+  <macrodef name="symlinkDirset"> 
+    <attribute name="fsRefid"/> 
+    <attribute name="destDir"/> 
+    <sequential> 
+      <apply executable="ln" dest="@{destdir}"  dir="@{destdir}" verbose="false"> 
+        <arg value="-s"/> 
+        <arg value="-f"/> 
+	<srcfile/>
+	<targetfile />
+	<flattenmapper/>
+        <dirset refid="@{fsRefid}"/> 
+      </apply> 
+    </sequential> 
+  </macrodef> 
+
+  <fileset dir="dot" id="dotFiles">
+    <include name="*" />
+  </fileset>
+
+  <fileset dir="." id="files">
+    <include name="*" /> 
+    <exclude name="build.xml" />
+  </fileset>
+
+
+  <dirset dir="dot" id="dotDirs">
+    <include name="*" />
+  </dirset>
+
+  <dirset dir="." id="dirs">
+    <include name="*" /> 
+    <exclude name="dot" />
+  </dirset>
+  
+  <target name="install">
+    <symlinkFileset fsRefid="files" destDir="${user.home}" />
+    <symlinkDirset fsRefid="dirs" destDir="${user.home}" />
+    <symlinkDotFileset fsRefid="dotFiles" destDir="${user.home}" />
+    <symlinkDotDirset fsRefid="dotDirs" destDir="${user.home}" />
+  </target>
+</project>

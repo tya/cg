@@ -1,0 +1,83 @@
+############################################################################
+## General Options
+############################################################################
+# Set caption (bottom line in terminal)
+# %{= kw}        --> set print attributes (black bg, white fg)
+# %{G}[          --> print a bright green '['
+# %=             --> print padding
+# %{w}%?%-w      --> print in white any windows up to current one
+# %{R}(          --> print in bright red print '('
+# %{R}%n         --> print in bright red print the current window number and name
+# %{R}%t         --> print in bright red print the current window name
+# %{R})          --> print in bright red print ')'
+# %{w}%?%+w      --> print in white any windows after current one
+# %=             --> pad the string to the display's width
+# %{G}]          --> print a bright green ']'
+#hardstatus always lastline "%{= kg}[%=%{= kw}%?%-w%{R}(%n*%t)%?%+w%{= kg}%=]"
+#caption always "%{= kg}[%=%{= kw}%?%-w%{R}(%n*%t)%?%+w%{= kg}%=]"
+caption always "%{= kw} %{G}[%=%{y}%?%-w%{R}(%{R}%n %{R}%t%{R})%{y}%?%+w%=%{G}] "
+
+# Mininal hardstatus line (print in xterm header w/o color)
+#hardstatus always lastline
+#hardstatus string "[%=%?%-w(%n %t)%?%+w%=]"
+
+# Turn off the splash screen
+startup_message off
+
+# Autodetach session on hangup instead of terminating screen completely
+autodetach on
+
+# Use a 30000-line scrollback buffer 
+defscrollback 30000 
+
+# Turn on visual bell
+vbell on
+
+# From http://www4.informatik.uni-erlangen.de/~jnweiger/screen-faq.html
+# Q: My xterm scrollbar does not work with screen.
+# A: The problem is that xterm will not allow scrolling if the alternate text
+#     buffer is selected. The standard definitions of the termcap initialize
+#     capabilities ti and te switch to and from the alternate text buffer.
+#     (The scrollbar also does not work when you start e.g. ‘vi’).
+#     You can tell screen not to use these initialisations by adding the line
+#     “termcapinfo xterm ti@:te@” to your ~/.screenrc file. 
+# Enable xterm mouse scrolling
+termcapinfo xterm ti@:te@
+termcapinfo screen* ti@:te@
+
+
+############################################################################
+## Key Bindings
+############################################################################
+# bind ctl-a <space bar> to show window list
+bind ' ' windowlist -b
+
+# emacs key bindings 
+# see http://snarfed.org/emacs_keybindings_in_gnu_screens_copy-scrollback_mode
+#escape ^x^x
+bind o focus
+#bind 0 remove
+#bind 1 only
+#bind 2 split
+bind = resize =
+bind ^b windowlist -m
+
+# M-< and M-> for start/end of buffer  
+bindkey -m “^[<” stuff “g”  
+bindkey -m “^[>” stuff “G”
+
+
+############################################################################
+## Screens
+############################################################################
+screen -t feeder       2
+screen -t config       1
+screen -t opco         0
+
+
+############################################################################
+## Disabled Options
+############################################################################
+#escape ^Bb # Instead of Control-a, make the escape/command character be Control-b
+#termcap  xterm 'AF=\E[3%dm:AB=\E[4%dm'
+#terminfo xterm 'AF=\E[3%p1%dm:AB=\E[4%p1%dm'
