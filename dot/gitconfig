@@ -1,38 +1,40 @@
 [user]
-  email = ta@wayin.com
-  name = Ty Alexander
-  editor = vim
+	email = ty.alexander@gmail.com ty.alexander@sendgrid.com
+	name = Ty Alexander
+	editor = vim
+[github]
+	user = alexandt
 [core]
-  whitespace = trailing-space,space-before-tab,indent-with-non-tab,cr-at-eol
-  autocrlf = input
-  excludesfile = /Users/ta/.gitignore_global
+	whitespace = trailing-space,space-before-tab,indent-with-non-tab,cr-at-eol
+	autocrlf = input
+	excludesfile = /Users/tyalexander/.gitignore_global
 [color]
-  diff = auto
-  status = auto
-  branch = auto
+	diff = auto
+	status = auto
+	branch = auto
 [push]
-  default = upstream
+	default = upstream
 [alias]
-  ci = commit
-  co = checkout
-  st = status
-  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
-  lp = log -p
+	ci = commit
+	co = checkout
+	st = status
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+	lp = log -p
 [diff]
-  tool = diffmerge
+	tool = diffmerge
 [difftool "diffmerge"]
-  cmd = diffmerge $LOCAL $REMOTE
+	cmd = diffmerge $LOCAL $REMOTE
 [merge]
-  tool = diffmerge
+	tool = diffmerge
 [mergetool "diffmerge"]
-  cmd = diffmerge --merge --result=$MERGED $LOCAL $BASE $REMOTE
-  trustExitCode = true
+	cmd = diffmerge --merge --result=$MERGED $LOCAL $BASE $REMOTE
+	trustExitCode = true
 [difftool "sourcetree"]
-	cmd = /Applications/DiffMerge.app/Contents/MacOS/DiffMerge --nosplash \"$LOCAL\" \"$REMOTE\"
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
-#[mergetool "sourcetree"]
-#	cmd = /Applications/DiffMerge.app/Contents/MacOS/DiffMerge --merge --result=\"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
-#	trustExitCode = true
+	#[mergetool "sourcetree"]
+	#cmd = /Applications/DiffMerge.app/Contents/MacOS/DiffMerge --merge --result=\"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
+	#trustExitCode = true
 [mergetool "sourcetree"]
-	cmd = /Applications/DiffMerge.app/Contents/MacOS/DiffMerge --merge --result=\"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
