@@ -1,5 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
-let g:netrw_dirhist_1='/Users/ta/git-sandbox/labs/.git'
-let g:netrw_dirhist_2='/Users/ty/git-wayin/wayinserver/wayin_backend/src/main/scripts'
-let g:netrw_dirhist_3='/Users/ty/git-garden/chef/data_bags'
