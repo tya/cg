@@ -6,6 +6,8 @@
 #
 #############################################################################
 
+#echo "INFO: loading .bashrc"
+
 #############################################################################
 # source /etc/bashrc
 #############################################################################
@@ -41,6 +43,14 @@ if [ -f ${HOME}/.bash_aliases ]; then
 fi
 
 #############################################################################
+# source ~/.bash_alias_wayinhub
+#############################################################################
+# source aliases
+if [ -f ${HOME}/.bash_wayinhub ]; then
+    source ${HOME}/.bash_wayinhub
+fi
+
+#############################################################################
 # color command terminal
 # see https://wiki.archlinux.org/index.php/Color_Bash_Prompt
 #############################################################################
@@ -54,8 +64,28 @@ export GIT_PS1_SHOWUPSTREAM="verbose"
 export PS1='\[\e[0;32m\][\[\e[m\]\[\e[1;34m\]\u\[\e[m\]\[\e[0;36m\]@\[\e[m\]\[\e[0;31m\]\h\[\e[m\] \[\e[1;34m\]\w\[\e[m\] $(__git_ps1 " (%s)")\[\e[m\]\[\e[0;32m\] \[\e[0;31m\]\$\[\e[0;32m\]] '
 
 #############################################################################
-# call personal functions
+# Bash completion settings 
 #############################################################################
-setjava6
+bind "set completion-ignore-case on"
+
+if [ -f ${HOME}/.bash_completion ]; then
+    . ${HOME}/.bash_completion
+fi
+
+if [ -f `brew --prefix`/etc/bash_completion ]; then
+    . `brew --prefix`/etc/bash_completion
+fi
+
+if [ -f `brew --prefix git`/etc/bash_completion.d/git-completion.bash ]; then
+    . `brew --prefix git`/etc/bash_completion.d/git-completion.bash
+fi
+
+
+#############################################################################
+# Call personal functions
+#############################################################################
+setjavadefault
 nodebug
 cleanpath
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

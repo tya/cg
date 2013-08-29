@@ -8,7 +8,9 @@
   ;; If you edit it by hand, you could mess it up, so be careful.
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
+ '(gud-gdb-command-name "gdb --annotate=1")
  '(inhibit-startup-screen t)
+ '(large-file-warning-threshold nil)
  '(mumamo-chunk-coloring (quote submode-colored))
  '(query-user-mail-address nil)
  '(regex-tool-backend (quote perl))
@@ -19,4 +21,4 @@
   ;; If you edit it by hand, you could mess it up, so be careful.
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
- '(default ((t (:stipple nil :background "Black" :foreground "green" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 120 :width normal :family "adobe-courier")))))
+ '(default ((t (:stipple nil :background "Black" :foreground "green" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 120 :width normal :family "apple-monaco")))))

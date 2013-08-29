@@ -1,4 +1,4 @@
- #############################################################################
+############################################################################
 # FILE: .bash_profile
 #
 # This file loads Ty's bash exports.  This file is sourced for eacn new
@@ -9,7 +9,7 @@
 #############################################################################
 # system info
 #############################################################################
-ARCH=`uname -m`
+#ARCH=`uname -m`
 PLATFORM=`uname -s`
 OS='unknown'
 
@@ -81,7 +81,7 @@ export HG_REPO='https://hg.corp.localmatters.com'
 # sandbox locations
 #############################################################################
 export SANDBOX=${HOME}/sandbox
-
+export HUBHOME=${HOME}/git-wayin/hub
 
 #############################################################################
 # setup python path
@@ -105,5 +105,37 @@ export NODE_PATH="/usr/local/lib/node:/usr/local/lib/node_modules"
 if [[ "$OS" == 'osx' ]]; then
     export JAVA_HOME_5=/System/Library/Frameworks/JavaVM.framework/Versions/1.5/Home
     export JAVA_HOME_6=/System/Library/Frameworks/JavaVM.framework/Versions/1.6/Home
-    export XBMC_ADDONS="~/Library/Application Support/XBMC/addons"
+    export JAVA_HOME_DEFAULT="$(/usr/libexec/java_home)"
+    export XBMC_ADDONS="$HOME/Library/Application Support/XBMC/addons"
 fi
+
+
+#############################################################################
+# elb-tools setup (see brew elb-tools)
+#############################################################################
+export AWS_ELB_HOME="/usr/local/Library/LinkedKegs/elb-tools/jars"
+export AWS_CLOUDFORMATION_HOME="/usr/local/Library/LinkedKegs/aws-cfn-tools/jars"
+export AWS_AUTO_SCALING_HOME="/usr/local/Library/LinkedKegs/auto-scaling/jars"
+export AWS_ELASTICACHE_HOME="/usr/local/Cellar/aws-elasticache/1.7.000/libexec"
+export AWS_IAM_HOME="/usr/local/opt/aws-iam-tools/jars"
+export AWS_SNS_HOME="/usr/local/Library/LinkedKegs/aws-sns-cli/jars"
+export AWS_CLOUDWATCH_HOME="/usr/local/Library/LinkedKegs/cloud-watch/jars"
+export SERVICE_HOME="$AWS_CLOUDWATCH_HOME"
+export EC2_AMITOOL_HOME="/usr/local/Library/LinkedKegs/ec2-ami-tools/jars"
+export AWS_RDS_HOME="/usr/local/Cellar/rds-command-line-tools/1.12.002/libexec"
+
+
+export EC2_PRIVATE_KEY="$(/bin/ls "$HOME"/.ec2/pk-*.pem | /usr/bin/head -1)"
+export EC2_CERT="$(/bin/ls "$HOME"/.ec2/cert-*.pem | /usr/bin/head -1)"
+export AWS_CREDENTIAL_FILE="$HOME/.s3cfg"
+
+#############################################################################
+# cassandra setup
+#############################################################################
+export CASSANDRA_HOME="$HOME/src/apache-cassandra-1.1.11"
+
+#############################################################################
+# wayin setup
+#############################################################################
+export WAYINHUB_ALIASES=${HOME}/.bash_alias_wayinhub
+export HUB_ROOT=${HOME}/git-wayin/hub

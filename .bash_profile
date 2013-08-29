@@ -6,12 +6,14 @@
 #
 #############################################################################
 
+#echo "INFO: loading .bash_profile"
+
 #############################################################################
 # source other files
 #############################################################################
 # get the aliases and functions
-if [ -f ~/.bashrc ]; then
-    . ~/.bashrc
+if [ -f ${HOME}/.bashrc ]; then
+    . ${HOME}/.bashrc
 fi
 
 
@@ -39,39 +41,36 @@ PROMPT_COMMAND='history -a'
 
 
 #############################################################################
-# Bash completion settings 
-#############################################################################
-bind "set completion-ignore-case on"
-
-if [ -f ${HOME}/.bash_completion ]; then
-    . ${HOME}/.bash_completion
-fi
-
-if [ -f `brew --prefix`/etc/bash_completion ]; then
-    . `brew --prefix`/etc/bash_completion
-fi
-
-if [ -f `brew --prefix git`/etc/bash_completion.d/git-completion.bash ]; then
-    . `brew --prefix git`/etc/bash_completion.d/git-completion.bash
-fi
-
-
-#############################################################################
 # path settings
 #############################################################################
-# ~/bin
-if [ -d ${HOME}/bin ]; then
-    export PATH=${PATH}:${HOME}/bin
+# /usr/local/bin
+if [ -d /usr/local/bin ]; then
+    export PATH=/usr/local/bin:${PATH}
 fi
 
-# ~/.local/bin
+# ${HOME}/.local/bin
 if [ -d ${HOME}/.local/bin ]; then
-    export PATH=${PATH}:${HOME}/.local/bin
+    export PATH=${HOME}/.local/bin:${PATH}
 fi
 
-# ~/scripts
-if [ -d ${HOME}/scripts ]; then
-    export PATH=${PATH}:${HOME}/scripts
+# ${HOME}/.rvm/bin
+if [ -d ${HOME}/.rvm/bin ]; then
+    export PATH=${HOME}/.rvm/bin:${PATH}
+fi
+
+# ${HOME}/bin
+if [ -d ${HOME}/bin ]; then
+    export PATH=${HOME}/bin:${PATH}
+fi
+
+# /usr/local/share/npm/bin
+if [ -d /usr/local/share/npm/bin ]; then
+    export PATH=/usr/local/share/npm/bin:${PATH}
+fi
+
+# cassandra
+if [ -d ${CASSANDRA_HOME}/bin ]; then
+    export PATH=${CASSANDRA_HOME}/bin:${PATH}
 fi
 
 # /usr/local/mysql/bin (mysql)
@@ -79,19 +78,9 @@ if [ -d /usr/local/mysql/bin ]; then
     export PATH=${PATH}:/usr/local/mysql/bin
 fi
 
-# /opt/local/bin (macports)
-if [ -d /opt/local/bin ]; then
-    export PATH=/opt/local/bin:${PATH}
-fi
-
-# /opt/local/sbin (macports)
-if [ -d /opt/local/bin ]; then
-    export PATH=/opt/local/sbin:${PATH}
-fi
-
-# sbin
-if [ -d /sbin ]; then
-    export PATH=${PATH}:/sbin
+# /usr/local/sbin
+if [ -d /usr/local/sbin ]; then
+    export PATH=${PATH}:/usr/local/sbin
 fi
 
 # /usr/sbin
@@ -99,10 +88,12 @@ if [ -d /usr/sbin ]; then
     export PATH=${PATH}:/usr/sbin
 fi
 
-# /usr/local/sbin
-if [ -d /usr/local/sbin ]; then
-    export PATH=${PATH}:/usr/local/sbin
+# sbin
+if [ -d /sbin ]; then
+    export PATH=${PATH}:/sbin
 fi
 
 cleanpath
 
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*

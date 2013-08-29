@@ -131,13 +131,21 @@ function setjava6 {
     [ -d $JAVA_HOME_6 ] && export JAVA_HOME=$JAVA_HOME_6 
 }
 
+#############################################################################
+# Function setjava6
+# usage: setjava6
+#############################################################################
+function setjavadefault {
+    [ -d $JAVA_HOME_DEFAULT ] && export JAVA_HOME=$JAVA_HOME_DEFAULT 
+}
 
 #############################################################################
 # Function setdebug
 # usage: setdebug
 #############################################################################
 function setdebug {
-    export MAVEN_OPTS="-Xmx2048m -Xms1024m -Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,address=5005,server=y,suspend=n"
+    export MAVEN_OPTS="-Xmx2048m -Xms1024m -XX:MaxPermSize=256M -Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,address=5005,server=y,suspend=n"
+    export GRADLE_OPTS="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005"
 }
 
 #############################################################################
@@ -145,5 +153,5 @@ function setdebug {
 # usage: nodebug
 #############################################################################
 function nodebug {
-    export MAVEN_OPTS="-Xmx2048m -Xms1024m"
+    export MAVEN_OPTS="-Xmx2048m -Xms1024m -XX:MaxPermSize=256M"
 }

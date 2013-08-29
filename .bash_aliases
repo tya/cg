@@ -116,8 +116,11 @@ alias mvnperf='mvn -Darguments="-DcukeTags=@none" release:perform'
 
 
 #############################################################################
-# lmi aliases
+# wayin aliases
 #############################################################################
-alias slapstop='kill -INT `cat /usr/local/Cellar/openldap/2.4.24/var/run/slapd.pid`'
-alias slapstart='/usr/libexec/slapd -f /usr/local/etc/openldap/slapd.conf'
+alias slapstop='kill -INT `cat /var/db/openldap/run/slapd.pid`'
+alias slapstart='/usr/libexec/slapd'
 alias slapis='ps aux | grep -i slapd'
+
+alias flushhub='redis-cli flushall && echo flush_all | nc localhost 11211'
+

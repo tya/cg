@@ -42,8 +42,8 @@ vbell on
 #     You can tell screen not to use these initialisations by adding the line
 #     “termcapinfo xterm ti@:te@” to your ~/.screenrc file. 
 # Enable xterm mouse scrolling
-termcapinfo xterm ti@:te@
-termcapinfo screen* ti@:te@
+#termcapinfo xterm ti@:te@
+#termcapinfo screen* ti@:te@
 
 
 ############################################################################
@@ -70,9 +70,7 @@ bindkey -m “^[>” stuff “G”
 ############################################################################
 ## Screens
 ############################################################################
-screen -t feeder       2
-screen -t config       1
-screen -t opco         0
+screen -t cassandra 1
 
 
 ############################################################################
