@@ -1,4 +1,4 @@
-dot/emacs.d/auto-save-list/*
+dotfiles/emacs.d/auto-save-list/*
 .project
 .settings
 *.iml
