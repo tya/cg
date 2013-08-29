@@ -66,7 +66,7 @@
     </sequential> 
   </macrodef> 
 
-  <fileset dir="dot" id="dotFiles">
+  <fileset dir="dotfiles" id="dotFiles">
     <include name="*" />
   </fileset>
 
@@ -76,13 +76,13 @@
   </fileset>
 
 
-  <dirset dir="dot" id="dotDirs">
+  <dirset dir="dotfiles" id="dotDirs">
     <include name="*" />
   </dirset>
 
   <dirset dir="." id="dirs">
     <include name="*" /> 
-    <exclude name="dot" />
+    <exclude name="dotfiles" />
   </dirset>
   
   <target name="install">
