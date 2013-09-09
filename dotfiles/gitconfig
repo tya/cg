@@ -1,9 +1,10 @@
 [user]
-	email = ty.alexander@gmail.com ty.alexander@sendgrid.com
+	email = ty.alexander@gmail.com
 	name = Ty Alexander
 	editor = vim
+	username = alexandt
 [github]
-	user = alexandt
+	username = alexandt
 [core]
 	whitespace = trailing-space,space-before-tab,indent-with-non-tab,cr-at-eol
 	autocrlf = input
@@ -39,3 +40,5 @@
 [mergetool "opendiff"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
+[credential]
+	helper = osxkeychain
