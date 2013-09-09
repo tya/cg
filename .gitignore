@@ -2,3 +2,4 @@ dotfiles/emacs.d/auto-save-list/*
 .project
 .settings
 *.iml
+dotfiles/vim/.netrwhist
