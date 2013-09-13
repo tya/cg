@@ -11,10 +11,13 @@ ZSH_THEME=risto
 # Use red dots to be displayed while waiting for completion
 COMPLETION_WAITING_DOTS="true"
 
+# Disable auto correction
+DISABLE_CORRECTION="true"
+
 # Disable autosetting terminal title for itab/ititle/iboth
 DISABLE_AUTO_TITLE="true"
 
 # Load plugings (see  ~/.oh-my-zsh/plugins/* and ${ZSH_CUSTOM}/plugins/)
-plugins=(personalize ant brew bundler colorize cp fabric gem gradle grails history knife mvn npm osx perl python rails rbenv redis-cli rsync ruby scala screen urlstools vagrant)
+plugins=(personalize ant brew bundler colorize cp fabric gem gradle grails history knife mvn npm osx perl python rails redis-cli rsync ruby scala screen urlstools vagrant)
 
 source $ZSH/oh-my-zsh.sh
