@@ -22,6 +22,8 @@ set nocompatible
 set backspace=indent,eol,start
 
 set nobackup		" do not keep a backup file, use versions instead
+set noswapfile          " no swap files
+set backupdir=~/.bak    " backup location
 set history=50		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
@@ -38,9 +40,9 @@ map Q gq
 inoremap <C-U> <C-G>u<C-U>
 
 " In many terminal emulators the mouse works just fine, thus enable it.
-if has('mouse')
-  set mouse=a
-endif
+"if has('mouse')
+"  set mouse=a
+"endif
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
