@@ -11,9 +11,27 @@
 ;; add site-lisp dir to load path
 (add-to-list 'load-path (expand-file-name "/usr/share/emacs/site-lisp/"))
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/"))
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/el/"))
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/elisp/"))
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/vendor/"))
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/auto-install/"))
+
+;; ----------------------------------
+;; emacs package management
+;; ----------------------------------
+(require 'package)
+;; Add the original Emacs Lisp Package Archive
+(add-to-list 'package-archives
+             '("elpa" . "http://tromey.com/elpa/"))
+;; Add the user-contributed repository
+(add-to-list 'package-archives
+             '("marmalade" . "http://marmalade-repo.org/packages/"))
+(package-initialize)
+
+;; ----------------------------------
+;; yasnippet
+;; ----------------------------------
+;;(yas-global-mode 1)
+
 
 ;; ----------------------------------
 ;; auto install
@@ -25,13 +43,13 @@
 ;; ----------------------------------
 ;; load svn
 ;; ----------------------------------
-(load "~/.emacs.d/elisp/psvn.el")
-(require 'psvn)
+;;(load "~/.emacs.d/elisp/psvn.el")
+;;(require 'psvn)
 
 ;; ----------------------------------
 ;; load vcl
 ;; ----------------------------------
-(load "~/.emacs.d/elisp/vcl-mode.el")
+;;(load "~/.emacs.d/elisp/vcl-mode.el")
 ;;(require 'vcl)
 
 ;; ----------------------------------
@@ -40,14 +58,14 @@
 ;; load scrolling
 ;;(load "~/.emacs.d/elisp/smooth-scrolling.el")
 ;;(require 'smooth-scrolling)
-(setq mouse-wheel-scroll-amount '(1))
-(setq mouse-wheel-progressive-speed nil)
+;;(setq mouse-wheel-scroll-amount '(1))
+;;(setq mouse-wheel-progressive-speed nil)
 
 ;; ----------------------------------
 ;; load python
 ;; ----------------------------------
-(load "~/.emacs.d/elisp/python-mode.el")
-(require 'python)
+;;(load "~/.emacs.d/elisp/python-mode.el")
+;;(require 'python)
 
 ;; ----------------------------------
 ;; load nxml
@@ -58,9 +76,9 @@
 ;; ----------------------------------
 ;; load Pymacs
 ;; ----------------------------------
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/vendor/Pymacs-0.23/"))
-(load "~/.emacs.d/vendor/Pymacs-0.23/pymacs.el")
-(require 'pymacs)
+;;(add-to-list 'load-path (expand-file-name "~/.emacs.d/vendor/Pymacs-0.23/"))
+;;(load "~/.emacs.d/vendor/Pymacs-0.23/pymacs.el")
+;;(require 'pymacs)
 
 ;; ----------------------------------
 ;; load yasnippet-bundle
@@ -92,26 +110,26 @@
 ;; remove annoying
 ;; ----------------------------------
 ;; will make the last line end in a carriage return.
-(setq require-final-newline t)
+;;(setq require-final-newline t)
 
 ;; allow you to type just "y" instead of "yes" when you exit.
-(fset 'yes-or-no-p 'y-or-n-p)
+;;(fset 'yes-or-no-p 'y-or-n-p)
 
 
 ;; ----------------------------------
 ;; general options
 ;; ----------------------------------
 ;; will make text-mode default.
-(setq default-major-mode 'text-mode)
+;;(setq default-major-mode 'text-mode)
 
 ;; use american dictionary
-(ispell-change-dictionary "american")
+;;(ispell-change-dictionary "american")
 
 ;; create spaces not tabs
 (setq-default indent-tabs-mode nil)
 
 ;; Set case-sensitive search off
-(setq-default case-fold-search t)
+;;(setq-default case-fold-search t)
 
 ;; ignore case in completion
 ;;(setq completion-ignore-case t)
@@ -141,7 +159,7 @@
 ;;(setq scroll-preserve-screen-position 1)
 
 ;; disallow creation of new lines when you press the "arrow-down key" at end of the buffer.
-(setq next-line-add-newlines nil)
+;;(setq next-line-add-newlines nil)
 
 
 ;; -----------------------------------
@@ -159,8 +177,8 @@
 ;;(tool-bar-mode 0)
 
 ;; make the display of date and time persistent.
-(setq display-time-day-and-date t)
-(display-time)
+;;(setq display-time-day-and-date t)
+;;(display-time)
 
 ;; Display line numbers
 (setq-default line-number-mode t)
@@ -169,10 +187,10 @@
 (setq-default column-number-mode t)
 
 ;; enable fontification (color) in all modes.
-(global-font-lock-mode t t)
+;;(global-font-lock-mode t t)
 
 ;; denotes our interest in maximum possible fontification.
-(setq font-lock-maximum-decoration t)
+;;(setq font-lock-maximum-decoration t)
 
 ;; trucate lines if they are too long.
 ;;(setq-default truncate-lines t)
@@ -189,11 +207,11 @@
 ;; Parenthesis Matching is in Viper
 ;; See M-X viper-mode in
 ;; Can also be accomplished with ESC ^F forward, and ESC ^B backwards.
-(load-library "viper-cmd")
+;;(load-library "viper-cmd")
 
 ;; highlight matching parentheses next to cursor.
-(require 'paren)
-(show-paren-mode t)
+;;(require 'paren)
+;;(show-paren-mode t)
 
 ;; highlight region between point and mark.
 (transient-mark-mode t)
@@ -239,144 +257,38 @@
 ;; -----------------------------------
 ;; Put autosave files (ie #foo#) in one place, *not*
 ;; scattered all over the file system!
-(defvar autosave-dir "~/bak/emacs_autosaves/")
-(make-directory autosave-dir t)
+;;(defvar autosave-dir "~/bak/emacs_autosaves/")
+;;(make-directory autosave-dir t)
 
-(defun auto-save-file-name-p (filename)
-  (string-match "^#.*#$" (file-name-nondirectory filename)))
+;;(defun auto-save-file-name-p (filename)
+;;  (string-match "^#.*#$" (file-name-nondirectory filename)))
 
-(defun make-auto-save-file-name ()
-  (concat autosave-dir
-   (if buffer-file-name
-      (concat "#" (file-name-nondirectory buffer-file-name) "#")
-    (expand-file-name
-     (concat "#%" (buffer-name) "#")))))
+;;(defun make-auto-save-file-name ()
+;;  (concat autosave-dir
+;;   (if buffer-file-name
+;;      (concat "#" (file-name-nondirectory buffer-file-name) "#")
+;;    (expand-file-name
+;;     (concat "#%" (buffer-name) "#")))))
 
 ;; Put backup files (ie foo~) in one place too. (The backup-directory-alist
 ;; list contains regexp=>directory mappings; filenames matching a regexp are
 ;; backed up in the corresponding directory. Emacs will mkdir it if necessary.)
-(defvar backup-dir "~/bak/emacs_autosaves/")
-(setq backup-directory-alist (list (cons "." backup-dir)))
-
-
-;; ----------------------------------
-;; shell
-;; ----------------------------------
-;; print message
-(message "customizing shell")
-
-;; ??
-(setq comint-password-prompt-regexp "\\(\\([Oo]ld \\|[Nn]ew \\|'s \\|login \\|Kerberos \\|CVS \\|UNIX \\| SMB \\|[Ee]nter \\|^\\)[Pp]assword\\( (again)\\)?\\|pass phrase\\|\\(Enter\\|Repeat\\) passphrase\\)\\( for [^:]+\\)?:\\s *\\'");
-
-;; ??
-(setq comint-highlight-prompt nil)
-
-;; ??
-(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
-
-;; ??
-(add-hook 'comint-output-filter-functions 'comint-watch-for-password-prompt)
-
-;; ??
-(put 'downcase-region 'disabled nil)
-
-;; ??
-(put 'upcase-region   'disabled nil)
-
-;; set shell path
-(setq sh-shell-file "/bin/sh")
-
-;; do not make backup files
-;;(setq make-backup-files nil)
-
-;; ??
-(put 'narrow-to-region 'disabled nil)
-
-
-;; ----------------------------------
-;; php
-;; ----------------------------------
-;; (add-hook 'php-mode-user-hook
-;; 	  (lambda ()
-;; 	      (setq indent-tabs-mode t)
-;; 	      (setq tab-width 4)
-;; 	      (set-face-foreground font-lock-comment-face "RoyalBlue1")
-;; 	      (set-face-foreground font-lock-string-face "Cyan")
-;; 	      (set-face-foreground 'highlight "Black")
-;; 	      (set-face-foreground 'region "Black")
-;; 	      (set-face-foreground 'secondary-selection "Black")
-;; 	      (set-face-background 'region "Blue")
-;; 	      (c-set-offset 'case-label '+)
-;; 	      (c-set-style "stroustrup")))
-
-;; (defun phpcode-format ()
-;;   "Formats PHP code the way we like it here at Beatport"
-;;   (interactive)
-;;   (save-excursion
-;;     (goto-char (point-min))
-;;     (replace-regexp "[[:space:]]*(" "(")
-;;     (goto-char (point-min))
-;;     (replace-regexp "([[:space:]]*)" "()")
-;;     (goto-char (point-min))
-;;     (replace-regexp ")[[:space:]]*" ")")
-;;     (goto-char (point-min))
-;;     (replace-regexp ")[[:space:]]*{" ")
-
-;; {")
-;;     (goto-char (point-min))
-;;     (replace-regexp "(\\([^:space:)]\\)" "( \\1")
-;;     (goto-char (point-min))
-;;     (replace-regexp "\\([^(:space:]\\))" "\\1 )")
-;;     (set-mark-command (point-min))
-;;     (indent-region (point-min) (point-max))
-;;     ))
-
-
-;; ----------------------------------
-;; window size and placement
-;; ----------------------------------
-(defun ty-emacs-frames (monitor)
-  "Sets up my emacs frames to just the way I like them."
-  (ty-build-one-frames 100 80))
-
-(defun ty-build-one-frames (left height)
-  "Builds two frames depending on the params given."
-  (let ((initial (selected-frame)))
-    (let ((first (make-frame)))
-      (set-frame-position first left 0)
-      (set-frame-height first height)
-      (set-frame-width first 240))
-    (delete-frame initial)))
-
-(defun ty-build-two-frames (left height)
-  "Builds two frames depending on the params given."
-  (let ((initial (selected-frame)))
-    (let ((first (make-frame)))
-      (set-frame-position first left 0)
-      (set-frame-height first height)
-      (set-frame-width first 100)
-      (let ((second (make-frame)))
-	(set-frame-position second (+ left 505) 0)
-	(set-frame-height second height)
-	(set-frame-width second 100)))
-    (delete-frame initial)))
-
-;;(ty-emacs-frames 1)
-
+;;(defvar backup-dir "~/bak/emacs_autosaves/")
+;;(setq backup-directory-alist (list (cons "." backup-dir)))
 
 ;; ----------------------------------
 ;; mode-extension mappings
 ;; ----------------------------------
-(add-to-list 'auto-mode-alist '("\\.xml_schema\\'" . nxml-mode))
-(add-to-list 'auto-mode-alist '("\\.xsd\\'" . nxml-mode))
-(add-to-list 'auto-mode-alist '("\\.atom\\'" . nxml-mode))
-(add-to-list 'auto-mode-alist '("\\.rss\\'" . nxml-mode))
-(add-to-list 'auto-mode-alist '("\\.rdf\\'" . nxml-mode))
-(add-to-list 'auto-mode-alist '("\\.rdfs\\'" . nxml-mode))
-(add-to-list 'auto-mode-alist '("\\.rdfa\\'" . nxml-mode))
-(add-to-list 'auto-mode-alist '("\\.rng\\'" . nxml-mode))
-(add-to-list 'auto-mode-alist '("\\.properties\\'" . make-file-mode))
-(add-to-list 'auto-mode-alist '("\\.template\\'" . rpm-spec-mode))
+;;(add-to-list 'auto-mode-alist '("\\.xml_schema\\'" . nxml-mode))
+;;(add-to-list 'auto-mode-alist '("\\.xsd\\'" . nxml-mode))
+;;(add-to-list 'auto-mode-alist '("\\.atom\\'" . nxml-mode))
+;;(add-to-list 'auto-mode-alist '("\\.rss\\'" . nxml-mode))
+;;(add-to-list 'auto-mode-alist '("\\.rdf\\'" . nxml-mode))
+;;(add-to-list 'auto-mode-alist '("\\.rdfs\\'" . nxml-mode))
+;;(add-to-list 'auto-mode-alist '("\\.rdfa\\'" . nxml-mode))
+;;(add-to-list 'auto-mode-alist '("\\.rng\\'" . nxml-mode))
+;;(add-to-list 'auto-mode-alist '("\\.properties\\'" . make-file-mode))
+;;(add-to-list 'auto-mode-alist '("\\.template\\'" . rpm-spec-mode))
 
 
 ;; ----------------------------------

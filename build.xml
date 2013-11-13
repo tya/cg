@@ -4,7 +4,7 @@
     <attribute name="fsRefid"/> 
     <attribute name="destDir"/> 
     <sequential> 
-      <apply executable="ln" dest="@{destdir}"  dir="@{destdir}" verbose="false"> 
+      <apply executable="ln" dest="@{destdir}" dir="@{destdir}" verbose="true"> 
         <arg value="-s"/> 
         <arg value="-f"/> 
 	<srcfile/>
@@ -13,7 +13,7 @@
 	  <flattenmapper/>
 	  <regexpmapper from="^(.*)$$" to=".\0"/>
 	</chainedmapper>
-        <fileset refid="@{fsRefid}"/> 
+        <fileset refid="@{fsRefid}"/>
       </apply> 
     </sequential> 
   </macrodef> 
@@ -22,7 +22,7 @@
     <attribute name="fsRefid"/> 
     <attribute name="destDir"/> 
     <sequential> 
-      <apply executable="ln" dest="@{destdir}"  dir="@{destdir}" verbose="false"> 
+      <apply executable="ln" dest="@{destdir}" dir="@{destdir}" verbose="false"> 
         <arg value="-s"/> 
         <arg value="-f"/> 
 	<srcfile/>
@@ -40,7 +40,7 @@
     <attribute name="fsRefid"/> 
     <attribute name="destDir"/> 
     <sequential> 
-      <apply executable="ln" dest="@{destdir}"  dir="@{destdir}" verbose="false"> 
+      <apply executable="ln" dest="@{destdir}" dir="@{destdir}" verbose="false"> 
         <arg value="-s"/> 
         <arg value="-f"/> 
 	<srcfile/>
@@ -55,7 +55,7 @@
     <attribute name="fsRefid"/> 
     <attribute name="destDir"/> 
     <sequential> 
-      <apply executable="ln" dest="@{destdir}"  dir="@{destdir}" verbose="false"> 
+      <apply executable="ln" dest="@{destdir}" dir="@{destdir}" verbose="false"> 
         <arg value="-s"/> 
         <arg value="-f"/> 
 	<srcfile/>
@@ -67,28 +67,15 @@
   </macrodef> 
 
   <fileset dir="dotfiles" id="dotFiles">
-    <include name="*" />
+    <include name="screenrc" />
   </fileset>
 
-  <fileset dir="." id="files">
-    <include name="*" /> 
-    <exclude name="build.xml" />
-  </fileset>
+  <fileset dir="${user.home}" id="dotFiles2" includes="${stripedDotFiles}" />
 
-
-  <dirset dir="dotfiles" id="dotDirs">
-    <include name="*" />
-  </dirset>
-
-  <dirset dir="." id="dirs">
-    <include name="*" /> 
-    <exclude name="dotfiles" />
-  </dirset>
-  
   <target name="install">
-    <symlinkFileset fsRefid="files" destDir="${user.home}" />
-    <symlinkDirset fsRefid="dirs" destDir="${user.home}" />
-    <symlinkDotFileset fsRefid="dotFiles" destDir="${user.home}" />
-    <symlinkDotDirset fsRefid="dotDirs" destDir="${user.home}" />
+    <symlinkDotFileset fsRefid="dotFiles2" destDir="${user.home}" />
+    <symlink action="record" linkfilename="foo.txt">
+      <fileset dir="${user.home}" includes="*" />
+    </symlink>
   </target>
 </project>
