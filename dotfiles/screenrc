@@ -55,7 +55,7 @@ bind ' ' windowlist -b
 # emacs key bindings 
 # see http://snarfed.org/emacs_keybindings_in_gnu_screens_copy-scrollback_mode
 #escape ^x^x
-bind o focus
+#bind o focus
 #bind 0 remove
 #bind 1 only
 #bind 2 split
@@ -63,14 +63,14 @@ bind = resize =
 bind ^b windowlist -m
 
 # M-< and M-> for start/end of buffer  
-bindkey -m “^[<” stuff “g”  
-bindkey -m “^[>” stuff “G”
+#bindkey -m “^[<” stuff “g”  
+#bindkey -m “^[>” stuff “G”
 
 
 ############################################################################
 ## Screens
 ############################################################################
-screen -t cassandra 1
+screen -t default 1
 
 
 ############################################################################

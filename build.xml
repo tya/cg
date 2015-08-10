@@ -1,56 +1,5 @@
 <project name="config" default="install">
 
-  <macrodef name="symlinkDotFileset"> 
-    <attribute name="fsRefid"/> 
-    <attribute name="destDir"/> 
-    <sequential> 
-      <apply executable="ln" dest="@{destdir}" dir="@{destdir}" verbose="true"> 
-        <arg value="-s"/> 
-        <arg value="-f"/> 
-	<srcfile/>
-	<targetfile />
-	<chainedmapper>
-	  <flattenmapper/>
-	  <regexpmapper from="^(.*)$$" to=".\0"/>
-	</chainedmapper>
-        <fileset refid="@{fsRefid}"/>
-      </apply> 
-    </sequential> 
-  </macrodef> 
-
-  <macrodef name="symlinkDotDirset"> 
-    <attribute name="fsRefid"/> 
-    <attribute name="destDir"/> 
-    <sequential> 
-      <apply executable="ln" dest="@{destdir}" dir="@{destdir}" verbose="false"> 
-        <arg value="-s"/> 
-        <arg value="-f"/> 
-	<srcfile/>
-	<targetfile />
-	<chainedmapper>
-	  <flattenmapper/>
-	  <regexpmapper from="^(.*)$$" to=".\0"/>
-	</chainedmapper>
-        <dirset refid="@{fsRefid}"/> 
-      </apply> 
-    </sequential> 
-  </macrodef> 
-
-  <macrodef name="symlinkFileset"> 
-    <attribute name="fsRefid"/> 
-    <attribute name="destDir"/> 
-    <sequential> 
-      <apply executable="ln" dest="@{destdir}" dir="@{destdir}" verbose="false"> 
-        <arg value="-s"/> 
-        <arg value="-f"/> 
-	<srcfile/>
-	<targetfile />
-	<flattenmapper/>
-        <fileset refid="@{fsRefid}"/> 
-      </apply> 
-    </sequential> 
-  </macrodef> 
-
   <macrodef name="symlinkDirset"> 
     <attribute name="fsRefid"/> 
     <attribute name="destDir"/> 
@@ -66,16 +15,23 @@
     </sequential> 
   </macrodef> 
 
-  <fileset dir="dotfiles" id="dotFiles">
-    <include name="screenrc" />
+  <fileset dir="${basedir}" id="dotFiles">
+    <exclude name="build.xml" />
+    <exclude name="symlinks" />
+    <include name="*" />
   </fileset>
+
+  <pathconvert targetos="unix" property="property" refid="dotFiles">
+    <map from="${wl.home}" to="${wl.home.unix}"/>
+    <map from="c:" to=""/>
+  </pathconvert>
 
   <fileset dir="${user.home}" id="dotFiles2" includes="${stripedDotFiles}" />
 
   <target name="install">
-    <symlinkDotFileset fsRefid="dotFiles2" destDir="${user.home}" />
-    <symlink action="record" linkfilename="foo.txt">
-      <fileset dir="${user.home}" includes="*" />
+    <copy file="symlinks" tofile="${user.home}/.symlinks" verbose="true"/>
+    <symlink action="recreate" linkfilename=".symlinks">
+      <fileset dir="${user.home}" includes=".symlinks" />
     </symlink>
   </target>
 </project>

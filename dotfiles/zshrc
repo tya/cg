@@ -4,6 +4,10 @@
 # ZSH Setup
 #
 ################################################################################
+if [ "${DEBUG-no}" != "no" ]; then
+  print "DEBUG: Loading /Users/tyalexander/.zshrc"
+fi
+
 ZSH=$HOME/.oh-my-zsh
 ZSH_CUSTOM=$HOME/.oh-my-zsh-custom
 ZSH_THEME=risto
@@ -17,7 +21,13 @@ DISABLE_CORRECTION="true"
 # Disable autosetting terminal title for itab/ititle/iboth
 DISABLE_AUTO_TITLE="true"
 
+# activate highlighters
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
+
+fpath=(/usr/local/share/zsh-completions $fpath)
+
 # Load plugings (see  ~/.oh-my-zsh/plugins/* and ${ZSH_CUSTOM}/plugins/)
-plugins=(personalize ant brew bundler colorize cp fabric gem gradle grails history knife mvn npm osx perl python rails redis-cli rsync ruby scala screen urlstools vagrant)
+#plugins=(personalize ant brew brew-cask bundler colorize cp docker fabric go golang gem gitfast git github gradle grails history jsontools knife mvn npm osx perl pip pyenv pylint python rails rake rbenv redis-cli rsync ruby scala screen ssh-agent sudo tmux urltools thor urlstools vagrant virtualenv web-search)
+plugins=(personalize ant brew brew-cask colorize cp docker fabric go golang gem history jsontools knife osx perl pip pyenv pylint python rails rake rbenv redis-cli rsync ruby ssh-agent sudo urltools thor vagrant virtualenv web-search zsh-syntax-highlighting sendgrid)
 
 source $ZSH/oh-my-zsh.sh
