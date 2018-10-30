@@ -25,6 +25,7 @@ Plug 'dyng/ctrlsf.vim'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'fatih/vim-go'
 Plug 'fatih/vim-go', { 'for': 'go' }
+Plug 'hashivim/vim-terraform'
 Plug 'haya14busa/incsearch.vim'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
@@ -46,7 +47,7 @@ Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
-Plug 'hashivim/vim-terraform'
+Plug 'xu-cheng/brew.vim'
 call plug#end()
 
 " ###################################################################
