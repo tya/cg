@@ -26,6 +26,7 @@ Plug 'dyng/ctrlsf.vim'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'fatih/vim-go'
 Plug 'fatih/vim-go', { 'for': 'go' }
+Plug 'vim-scripts/groovy.vim'
 Plug 'hashivim/vim-terraform'
 Plug 'haya14busa/incsearch.vim'
 Plug 'junegunn/fzf.vim'
