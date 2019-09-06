@@ -21,6 +21,7 @@ setup-zsh-plugins() {
      golang
      history
      jsontools
+     kubectl
      osx
      osx
      pip

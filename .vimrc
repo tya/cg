@@ -12,7 +12,6 @@ endif
 
 call plug#begin('~/.vim/plugged')
 Plug '/usr/local/opt/fzf'
-Plug 'junegunn/fzf.vim'
 Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'Yggdroot/indentLine'
@@ -24,19 +23,18 @@ Plug 'chrisbra/vim-diff-enhanced'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'dyng/ctrlsf.vim'
 Plug 'ekalinin/Dockerfile.vim'
-Plug 'fatih/vim-go'
-Plug 'fatih/vim-go', { 'for': 'go' }
-Plug 'vim-scripts/groovy.vim'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'hashivim/vim-terraform'
 Plug 'haya14busa/incsearch.vim'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'kana/vim-operator-user'
+Plug 'klen/python-mode'
 Plug 'kopischke/vim-fetch'
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'majutsushi/tagbar'
 Plug 'rbgrouleff/bclose.vim'
-Plug 'rhysd/vim-gfm-syntax'
+"Plug 'rhysd/vim-gfm-syntax'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
 Plug 'sheerun/vim-polyglot'
@@ -49,6 +47,7 @@ Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
+Plug 'vim-scripts/groovy.vim'
 Plug 'xu-cheng/brew.vim'
 call plug#end()
 
@@ -57,6 +56,11 @@ call plug#end()
 " ###################################################################
 " Show airline before split
 " hashivim/vim-terraformset nocompatible  " be iMproved, required
+
+" Python preferences
+let g:pymode_rope_lookup_project = 0
+let g:pymode_rope_complete_on_dot = 0
+let g:pymode_rope = 0
 
 " ###################################################################
 " ## AIRLINE
@@ -86,6 +90,14 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+" ###################################################################
+" ## TMUX
+" ###################################################################
+" save on swap to tmux
+" 1	:update (write the current buffer, but only if changed)
+" 2	:wall (write all buffers)
+let g:tmux_navigator_save_on_switch = 1
 
 " ###################################################################
 " ## SEARCH
@@ -141,6 +153,12 @@ let &colorcolumn=join(range(120,999),",")
 " let &colorcolumn="80,".join(range(120,999),",")
 
 " ###################################################################
+" ## FOLDING
+" ###################################################################
+" disable folding
+set nofoldenable
+
+" ###################################################################
 " ## INDENTING
 " ###################################################################
 " Indenting per filetype
@@ -154,11 +172,11 @@ set smarttab
 set expandtab
 
 " show hidden characters
-set list
-let &showbreak='+++ '
-if &listchars ==# 'eol:$'
-    set listchars=tab:>-,trail:-,extends:>,precedes:<,nbsp:%
-endif
+" set list
+" let &showbreak='+++ '
+" if &listchars ==# 'eol:$'
+"     set listchars=tab:>-,trail:-,extends:>,precedes:<,nbsp:%
+" endif
 
 " ###################################################################
 " ## NAVIGATION
@@ -187,7 +205,7 @@ nmap <leader>h :bprevious<CR>
 nmap <leader>bq :bp <BAR> bd #<CR>
 
 " Show all open buffers and their status
-nmap <leader>bl :ls<CR>
+nmap <leader>b :ls<CR>
 
 " Vim go settings
 let g:go_fmt_command = "goimports"
@@ -199,7 +217,8 @@ nnoremap <silent> <Leader>bd :Bclose<CR>
 " ## FILE BROWSERS
 " ###################################################################
 " Enable nerdtree
-map <Leader>n <plug>NERDTreeToggle<CR>
+nmap <Leader>n <plug>NERDTree<CR>
+nmap <Leader>N <plug>NERDTreeToggle<CR>
 
 
 " ###################################################################
@@ -212,6 +231,13 @@ imap <F1> <Esc>
 " ## COPY/PASTE
 " ###################################################################
 set clipboard=unnamed
+
+
+" ###################################################################
+" ## Language: python stuff
+" ###################################################################
+" Enable python3 syntax checking
+let g:pymode_python = 'python3'
 
 " ###################################################################
 " ## APPEARANCE
