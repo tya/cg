@@ -1,4 +1,5 @@
 .ssh/authorized_keys
+.ssh/github_rsa
 .ssh/id_rsa
 .ssh/joslinalexander
 .ssh/known_hosts
