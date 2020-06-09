@@ -9,6 +9,7 @@ setup-zsh() {
    export ZSH_THEME=risto
 }
 
+# NOTE: zsh-syntax-highlighting must be last
 setup-zsh-plugins() {
    plugins=(
      personalize

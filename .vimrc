@@ -37,6 +37,7 @@ Plug 'rbgrouleff/bclose.vim'
 "Plug 'rhysd/vim-gfm-syntax'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
+Plug 'sebdah/vim-delve'
 Plug 'sheerun/vim-polyglot'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'tmux-plugins/vim-tmux-focus-events'
@@ -49,6 +50,7 @@ Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
 Plug 'vim-scripts/groovy.vim'
 Plug 'xu-cheng/brew.vim'
+
 call plug#end()
 
 " ###################################################################
