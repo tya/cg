@@ -27,8 +27,11 @@
 	gf = fetch --all
 [url "git@github.com:"]
 	insteadOf = https://github.com/
+[url "git@code.hq.twilio.com:"]
+	insteadOf = https://code.hq.twilio.com/
 [hub]
 	protocol = https
+	host = code.hq.twilio.com
 [credential]
 	helper = osxkeychain
 [merge]
@@ -51,3 +54,5 @@
 	trustExitCode = true
 [commit]
 	template = /Users/tyalexander/.git_ci_msg
+[pull]
+	rebase = true

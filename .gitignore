@@ -3,3 +3,8 @@
 .ssh/id_rsa
 .ssh/joslinalexander
 .ssh/known_hosts
+.anyenv
+Library
+.bash_it
+.Trash
+.cache/anyenv
