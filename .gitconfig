@@ -1,21 +1,20 @@
 [user]
-	email = talexander@twilio.com
+	email = tya@users.noreply.github.com
+	#email = ty.alexander@segment.com
 	name = Ty Alexander
 	editor = vim
-	username = tya
-[github]
 	username = tya
 [core]
 	whitespace = trailing-space,space-before-tab,indent-with-non-tab,cr-at-eol
 	autocrlf = false
-	excludesfile = /Users/tyalexander/.gitignore_global
+	excludesfile = /Users/ty.alexander/.gitignore_global
 	pager = less -F -X
+[init]
+	defaultBranch = main
 [color]
 	diff = auto
 	status = auto
 	branch = auto
-[push]
-	default = tracking
 [alias]
 	ci = commit
 	co = checkout
@@ -25,15 +24,20 @@
 	unmerged = !git branch -r --no-merged | grep -v HEAD | xargs -L1 git --no-pager log --pretty=tformat:'%Cgreen%d%Creset | %h | %an | %Cblue%ar%Creset' -1 | column -t -s '|'
 	merged =   !git branch -r --merged    | grep -v HEAD | xargs -L1 git --no-pager log --pretty=tformat:'%Cgreen%d%Creset | %h | %an | %Cblue%ar%Creset' -1 | column -t -s '|'
 	gf = fetch --all
+[credential]
+	helper = osxkeychain
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/
 [url "git@github.com:"]
 	insteadOf = https://github.com/
 [url "git@code.hq.twilio.com:"]
 	insteadOf = https://code.hq.twilio.com/
-[hub]
-	protocol = https
-	host = code.hq.twilio.com
-[credential]
-	helper = osxkeychain
+[commit]
+	template = /Users/tyalexander/.git_ci_msg
+[pull]
+	rebase = true
+[push]
+	default = tracking
 [merge]
 	tool = diffmerge
 [mergetool]
@@ -48,11 +52,17 @@
 	trustExitCode = true
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+	path =
 [mergetool "sourcetree"]
 	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
-[commit]
-	template = /Users/tyalexander/.git_ci_msg
-[pull]
-	rebase = true
+[hub]
+	protocol = https
+	host = code.hq.twilio.com
+[github]
+	username = tya
+[twilio]
+	username = talexander
+	segmentUsername = ty.alexander
+	segmentTeam = platform
+	github = tya

@@ -28,7 +28,7 @@ Plug 'hashivim/vim-terraform'
 Plug 'haya14busa/incsearch.vim'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
-Plug 'kana/vim-operator-user'
+"Plug 'kana/vim-operator-user'
 Plug 'klen/python-mode'
 Plug 'kopischke/vim-fetch'
 Plug 'lervag/vimtex', { 'for': 'tex' }
@@ -258,6 +258,9 @@ syntax on
 " ###################################################################
 " ## GOLANG APPEARANCE
 " ###################################################################
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
+
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1

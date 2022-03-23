@@ -8,3 +8,6 @@ Library
 .bash_it
 .Trash
 .cache/anyenv
+.twilio
+.segment
+.sendgrid

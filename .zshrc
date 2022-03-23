@@ -13,6 +13,7 @@ setup-zsh() {
 setup-zsh-plugins() {
    plugins=(
      personalize
+     ansible
      brew
      colorize
      cp
@@ -23,8 +24,7 @@ setup-zsh-plugins() {
      history
      jsontools
      kubectl
-     osx
-     osx
+     macos
      pip
      pylint
      python
@@ -57,6 +57,10 @@ setup-oh-my-zsh() {
    source $ZSH/oh-my-zsh.sh
 }
 
+setup-displays() {
+  displayplacer "id:0CD51158-24CC-E8D1-C2B9-EE9B35FBD29F res:1792x1120 hz:59 color_depth:4 scaling:on origin:(0,0) degree:0" "id:A0662C74-8FE0-0445-FE47-AA33F77E11AC res:3840x2160 hz:60 color_depth:8 scaling:off origin:(-1053,-2160) degree:0" "id:9F475783-A21A-8B91-9990-F672E07C3D34 res:1692x3008 hz:60 color_depth:8 scaling:on origin:(2787,-2095) degree:270" "id:5B3D37D8-7F31-60EB-BB18-349C8FBC7406 res:1692x3008 hz:60 color_depth:8 scaling:on origin:(-2745,-2097) degree:90"
+}
+
 setup() {
    setup-zsh
    setup-zsh-plugins
@@ -65,3 +69,5 @@ setup() {
 }
 
 setup
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
