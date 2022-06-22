@@ -1,7 +1,7 @@
 [user]
 	email = tya@users.noreply.github.com
 	#email = ty.alexander@segment.com
-	name = Ty Alexander
+	name = tya
 	editor = vim
 	username = tya
 [core]
@@ -58,7 +58,6 @@
 	trustExitCode = true
 [hub]
 	protocol = https
-	host = code.hq.twilio.com
 [github]
 	username = tya
 [twilio]
