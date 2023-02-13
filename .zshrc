@@ -19,7 +19,6 @@ setup-zsh-plugins() {
      cp
      docker
      fzf
-     gem
      golang
      history
      jsontools
@@ -29,9 +28,7 @@ setup-zsh-plugins() {
      pylint
      python
      rsync
-     ruby
      sudo
-     thor
      tmux
      urltools
      virtualenv
