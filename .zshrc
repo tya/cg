@@ -13,26 +13,14 @@ setup-zsh() {
 setup-zsh-plugins() {
    plugins=(
      personalize
-     ansible
      brew
      colorize
      cp
-     docker
      fzf
-     golang
-     history
-     jsontools
      kubectl
-     macos
-     pip
-     pylint
-     python
-     rsync
      sudo
      tmux
      urltools
-     virtualenv
-     web-search
      zsh-completions
      zsh-syntax-highlighting
    )
@@ -67,4 +55,4 @@ setup() {
 
 setup
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+#[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
