@@ -6,8 +6,8 @@
 	username = tya
 [core]
 	whitespace = trailing-space,space-before-tab,indent-with-non-tab,cr-at-eol
-	autocrlf = false
-	excludesfile = /Users/ty.alexander/.gitignore_global
+	autocrlf = input
+	excludesfile = /Users/talexander/.gitignore_global
 	pager = less -F -X
 [init]
 	defaultBranch = main
