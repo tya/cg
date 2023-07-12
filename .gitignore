@@ -3,6 +3,7 @@
 .ssh/id_rsa
 .ssh/joslinalexander
 .ssh/known_hosts
+.ssh/config.d/segment
 .anyenv
 Library
 .bash_it
