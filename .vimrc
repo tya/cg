@@ -50,6 +50,7 @@ Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
 Plug 'vim-scripts/groovy.vim'
 Plug 'xu-cheng/brew.vim'
+Plug 'altercation/vim-colors-solarized'
 
 call plug#end()
 
