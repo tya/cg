@@ -22,7 +22,7 @@ setup-zsh-plugins() {
      tmux
      urltools
      zsh-completions
-     zsh-syntax-highlighting
+     zsh-fast-syntax-highlighting
    )
 }
 
