@@ -1,9 +1,8 @@
+.ssh/github
+.ssh/id_ed25529
+.ssh/tynet.us
 .ssh/authorized_keys
-.ssh/github_rsa
-.ssh/id_rsa
-.ssh/joslinalexander
 .ssh/known_hosts
-.ssh/config.d/segment
 .anyenv
 Library
 .bash_it
