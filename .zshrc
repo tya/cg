@@ -13,7 +13,6 @@ setup-zsh() {
 setup-zsh-plugins() {
    plugins=(
      personalize
-     brew
      colorize
      cp
      fzf
@@ -24,6 +23,9 @@ setup-zsh-plugins() {
      zsh-completions
      zsh-fast-syntax-highlighting
    )
+   if [[ "$(uname)" == "Darwin" ]]; then
+     plugins+=(brew)
+   fi
 }
 
 setup-oh-my-zsh-custom() {

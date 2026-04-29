@@ -7,7 +7,7 @@
 [core]
 	whitespace = trailing-space,space-before-tab,indent-with-non-tab,cr-at-eol
 	autocrlf = input
-	excludesfile = /Users/talexander/.gitignore_global
+	excludesfile = ~/.gitignore_global
 	pager = less -F -X
 [init]
 	defaultBranch = main
@@ -24,8 +24,6 @@
 	unmerged = !git branch -r --no-merged | grep -v HEAD | xargs -L1 git --no-pager log --pretty=tformat:'%Cgreen%d%Creset | %h | %an | %Cblue%ar%Creset' -1 | column -t -s '|'
 	merged =   !git branch -r --merged    | grep -v HEAD | xargs -L1 git --no-pager log --pretty=tformat:'%Cgreen%d%Creset | %h | %an | %Cblue%ar%Creset' -1 | column -t -s '|'
 	gf = fetch --all
-[credential]
-	helper = osxkeychain
 [url "ssh://git@github.com/"]
 	insteadOf = https://github.com/
 [url "git@github.com:"]
@@ -33,7 +31,9 @@
 [url "git@code.hq.twilio.com:"]
 	insteadOf = https://code.hq.twilio.com/
 [commit]
-	template = /Users/tyalexander/.git_ci_msg
+	template = ~/.git_ci_msg
+[github]
+	username = tya
 [pull]
 	rebase = true
 [push]
@@ -50,18 +50,7 @@
 [difftool "diffmerge"]
 	cmd = diffmerge \"$LOCAL\" \"$REMOTE\"
 	trustExitCode = true
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
-[hub]
-	protocol = https
-[github]
-	username = tya
-[twilio]
-	username = talexander
-	segmentUsername = ty.alexander
-	segmentTeam = platform
-	github = tya
+[includeIf "gitdir:/Users/"]
+	path = ~/.gitconfig.macos
+[includeIf "gitdir:/home/"]
+	path = ~/.gitconfig.linux

@@ -11,7 +11,13 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
-Plug '/usr/local/opt/fzf'
+if isdirectory('/opt/homebrew/opt/fzf')
+  Plug '/opt/homebrew/opt/fzf'
+elseif isdirectory('/usr/local/opt/fzf')
+  Plug '/usr/local/opt/fzf'
+else
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+endif
 Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'Yggdroot/indentLine'
@@ -50,7 +56,6 @@ Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
 Plug 'vim-scripts/groovy.vim'
 Plug 'xu-cheng/brew.vim'
-Plug 'altercation/vim-colors-solarized'
 
 call plug#end()
 
@@ -97,7 +102,7 @@ let g:syntastic_check_on_wq = 0
 " ###################################################################
 " ## Markdown
 " ###################################################################
-let g:vim_makrdown_conceal = 0
+let g:vim_markdown_conceal = 0
 
 " ###################################################################
 " ## TMUX
