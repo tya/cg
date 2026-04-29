@@ -28,12 +28,8 @@
 	insteadOf = https://github.com/
 [url "git@github.com:"]
 	insteadOf = https://github.com/
-[url "git@code.hq.twilio.com:"]
-	insteadOf = https://code.hq.twilio.com/
 [commit]
 	template = ~/.git_ci_msg
-[github]
-	username = tya
 [pull]
 	rebase = true
 [push]
