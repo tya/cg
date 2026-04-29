@@ -1,0 +1,66 @@
+#!/usr/bin/env bash
+# Linux (Debian/Ubuntu) package equivalent of .Brewfile
+# Usage: bash ~/Aptfile
+
+set -euo pipefail
+
+# Core tools
+sudo apt-get update
+sudo apt-get install -y \
+  ack \
+  asciidoc \
+  awscli \
+  bash \
+  bash-completion \
+  coreutils \
+  curl \
+  git \
+  graphviz \
+  htop \
+  httpie \
+  iperf3 \
+  jq \
+  keychain \
+  nmap \
+  p7zip-full \
+  protobuf-compiler \
+  psmisc \
+  qrencode \
+  telnet \
+  tmux \
+  tree \
+  vim \
+  watch \
+  wget \
+  yq \
+  zlib1g-dev \
+  zsh \
+  zsh-syntax-highlighting \
+
+# Search tools (used by vim/fzf)
+sudo apt-get install -y \
+  fzf \
+  silversearcher-ag \
+  universal-ctags \
+
+# oh-my-zsh (cloned automatically by .zshrc, but zsh must be installed first)
+# To set zsh as default shell:
+#   chsh -s $(which zsh)
+
+# tmux plugin manager (TPM) - auto-bootstraps plugins on first tmux launch
+# git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+# vim-plug auto-installs on first vim launch (needs curl)
+
+# rainbarf (tmux status bar) - install from cpan if desired:
+#   sudo cpanm App::rainbarf
+
+# 1password-cli (not in apt, install from upstream):
+#   https://developer.1password.com/docs/cli/get-started/#install
+
+# terraform (not in apt, install from hashicorp repo):
+#   https://developer.hashicorp.com/terraform/install
+
+# helm / kubectl (not in apt, install from upstream repos):
+#   https://helm.sh/docs/intro/install/
+#   https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
