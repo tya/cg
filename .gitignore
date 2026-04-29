@@ -3,6 +3,7 @@
 .ssh/tynet.us
 .ssh/authorized_keys
 .ssh/known_hosts
+.ssh/.bak
 .anyenv
 Library
 .bash_it
