@@ -35,13 +35,13 @@ sudo apt-get install -y \
   yq \
   zlib1g-dev \
   zsh \
-  zsh-syntax-highlighting \
+  zsh-syntax-highlighting
 
 # Search tools (used by vim/fzf)
 sudo apt-get install -y \
   fzf \
   silversearcher-ag \
-  universal-ctags \
+  universal-ctags
 
 # oh-my-zsh (cloned automatically by .zshrc, but zsh must be installed first)
 # To set zsh as default shell:

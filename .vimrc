@@ -19,7 +19,7 @@ else
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 endif
 Plug 'ConradIrwin/vim-bracketed-paste'
-Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': ['NERDTree', 'NERDTreeToggle'] }
 Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
 Plug 'altercation/vim-colors-solarized'
@@ -35,14 +35,13 @@ Plug 'haya14busa/incsearch.vim'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
 "Plug 'kana/vim-operator-user'
-Plug 'klen/python-mode'
+Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 Plug 'kopischke/vim-fetch'
 Plug 'lervag/vimtex', { 'for': 'tex' }
-Plug 'majutsushi/tagbar'
+Plug 'preservim/tagbar'
 Plug 'rbgrouleff/bclose.vim'
 "Plug 'rhysd/vim-gfm-syntax'
-Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/syntastic'
+Plug 'preservim/nerdtree'
 Plug 'sebdah/vim-delve'
 Plug 'sheerun/vim-polyglot'
 Plug 'tmux-plugins/vim-tmux'
@@ -85,19 +84,6 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 " Set separator in airline
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
-
-" ###################################################################
-" ## SYNTASTIC
-" ###################################################################
-" Show airline before split
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
 
 " ###################################################################
 " ## Markdown
