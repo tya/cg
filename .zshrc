@@ -7,6 +7,12 @@
 setup-zsh() {
    export ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
    export ZSH_THEME=risto
+   export COMPLETION_WAITING_DOTS="true"
+   export DISABLE_AUTO_TITLE="true"
+   export DISABLE_CORRECTION="true"
+   if [ -d /opt/homebrew/share/zsh-completions ]; then
+      fpath=(/opt/homebrew/share/zsh-completions $fpath)
+   fi
 }
 
 # NOTE: zsh-syntax-highlighting must be last
@@ -20,7 +26,6 @@ setup-zsh-plugins() {
      sudo
      tmux
      urltools
-     zsh-completions
      zsh-fast-syntax-highlighting
    )
    if [[ "$(uname)" == "Darwin" ]]; then
@@ -28,10 +33,10 @@ setup-zsh-plugins() {
    fi
 }
 
-setup-oh-my-zsh-custom() {
-   ZSH_CUSTOM="${HOME}"/.oh-my-zsh-custom
+setup-tynet-omz() {
+   ZSH_CUSTOM="${HOME}"/.tynet-omz
    if [ ! -d "${ZSH_CUSTOM}" ]; then
-      git clone https://github.com/tya/oh-my-zsh-custom "${ZSH_CUSTOM}"
+      git clone https://github.com/tya/tynet-omz "${ZSH_CUSTOM}"
    fi
 }
 
@@ -56,7 +61,7 @@ setup() {
    setup-path
    setup-zsh
    setup-zsh-plugins
-   setup-oh-my-zsh-custom
+   setup-tynet-omz
    setup-oh-my-zsh
 }
 

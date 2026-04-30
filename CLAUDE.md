@@ -28,7 +28,7 @@ cg push
 
 ## Key Configuration Files
 
-- **`.zshrc`** - Shell setup using oh-my-zsh with a custom plugin repo (`tya/oh-my-zsh-custom`). The `zsh-fast-syntax-highlighting` plugin must remain last in the plugin list.
+- **`.zshrc`** - Shell setup using oh-my-zsh with a custom plugin repo (`tya/tynet-omz`). The `zsh-fast-syntax-highlighting` plugin must remain last in the plugin list.
 - **`.gitconfig`** - Git config with aliases (`ci`, `co`, `st`, `lg`), pull rebase enabled, SSH URL rewrites for GitHub, and DiffMerge as the merge/diff tool.
 - **`.tmux.conf`** - Tmux with `C-a` prefix (not default `C-b`), vi copy mode, TPM plugin manager, and tmux-continuum for auto-restore. Depends on `.tmux.defaults.conf`.
 - **`.Brewfile`** - Homebrew bundle for reproducible package installation (`brew bundle --file=.Brewfile`).
