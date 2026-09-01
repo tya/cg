@@ -1,0 +1,20 @@
+# NOTE: the real config is this .txt file; ~/.config/ghostty/config is a
+# symlink to it. Ghostty's fixed config path has no extension, so macOS types
+# it as public.data and `open_config` (cmd+,) ignores the public.plain-text
+# editor default. Following the symlink to a .txt target routes cmd+, to the
+# public.plain-text handler (MacVim). See tynet-omz setups/osx/rc.zsh.
+
+theme = solarized-dark
+font-size = 13
+
+# Go Mono (Bigelow & Holmes, the Go project's monospace face).
+# Provided by `cask "font-go"` in .Brewfile.
+#font-family = "Go Mono"
+font-family = "Monaco"
+
+# Turn off programming ligatures / contextual glyph substitution.
+# Go Mono ships none today, but this keeps them off if the font ever changes
+# or you swap in Fira Code / JetBrains Mono later.
+font-feature = -liga
+font-feature = -dlig
+font-feature = -calt
