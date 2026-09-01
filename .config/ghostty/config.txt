@@ -18,3 +18,29 @@ font-family = "Monaco"
 font-feature = -liga
 font-feature = -dlig
 font-feature = -calt
+adjust-cell-height = 10%
+
+# --- Appearance ---
+background-opacity = 0.95
+background-blur-radius = 20
+
+# --- Shell integration (prompt marks, jump-to-prompt, cwd inheritance) ---
+shell-integration = detect
+shell-integration-features = cursor, sudo, title
+
+# --- Scrollback / clipboard ---
+scrollback-limit = 10000000
+copy-on-select = clipboard
+clipboard-read = allow
+clipboard-write = allow
+
+# --- Window ---
+window-padding-x = 8
+window-padding-y = 8
+window-save-state = always
+confirm-close-surface = false
+macos-option-as-alt = true
+
+# --- Cursor ---
+cursor-style = block
+cursor-style-blink = false
