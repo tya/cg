@@ -5,11 +5,12 @@
 # public.plain-text handler (MacVim). See tynet-omz setups/osx/rc.zsh.
 
 theme = solarized-dark
-font-size = 12
+font-size = 13
 
 # Go Mono (Bigelow & Holmes, the Go project's monospace face).
 # Provided by `cask "font-go"` in .Brewfile.
-font-family = "Go Mono"
+#font-family = "Go Mono"
+font-family = "Monaco"
 
 # Turn off programming ligatures / contextual glyph substitution.
 # Go Mono ships none today, but this keeps them off if the font ever changes
