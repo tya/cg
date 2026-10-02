@@ -7,14 +7,18 @@
 theme = solarized-dark
 font-size = 13
 
-# Go Mono (Bigelow & Holmes, the Go project's monospace face).
-# Provided by `cask "font-go"` in .Brewfile.
-#font-family = "Go Mono"
-font-family = "Monaco"
+# MesloLGS Nerd Font Mono — patched with the Powerline glyphs (segment
+# separator U+E0B0, branch icon U+E0A0, etc.) the tynet-omz agnosterzak
+# prompt needs. Provided by `cask "font-meslo-lg-nerd-font"` in .Brewfile.
+font-family = "MesloLGS Nerd Font Mono"
 
-# Turn off programming ligatures / contextual glyph substitution.
-# Go Mono ships none today, but this keeps them off if the font ever changes
-# or you swap in Fira Code / JetBrains Mono later.
+# Earlier faces, kept as fallbacks if you ever switch the prompt back:
+#font-family = "Go Mono"   # cask "font-go"
+#font-family = "Monaco"    # macOS built-in
+
+# Turn off programming ligatures / contextual glyph substitution. Doesn't
+# affect the Powerline glyphs above — those are plain codepoints, not
+# ligatures.
 font-feature = -liga
 font-feature = -dlig
 font-feature = -calt
