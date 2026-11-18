@@ -14,6 +14,7 @@ sudo apt-get install -y \
   bash-completion \
   coreutils \
   curl \
+  direnv \
   git \
   graphviz \
   htop \
@@ -64,3 +65,9 @@ sudo apt-get install -y \
 # helm / kubectl (not in apt, install from upstream repos):
 #   https://helm.sh/docs/intro/install/
 #   https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
+
+# duckdb (not packaged in apt, install from upstream):
+#   https://duckdb.org/docs/installation/
+
+# pyenv: managed via anyenv (not a standalone apt package), then:
+#   anyenv install pyenv
